@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sentir Docente | Apoyo Emocional para Educadores",
+  title: "Vicky Aphalo | Apoyo Emocional para Educadores",
   description: "Un espacio diseñado para brindar acompañamiento emocional y bienestar a docentes y profesionales de la educación.",
 };
 

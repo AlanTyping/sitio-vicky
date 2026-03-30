@@ -3,7 +3,7 @@ export default function Description() {
     <section id="descripcion" className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-emerald-600 uppercase tracking-wide">
+          <h2 className="text-base font-semibold leading-7 text-primary-600 uppercase tracking-wide">
             Nuestro Propósito
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -33,7 +33,7 @@ export default function Description() {
                 icon: '🧘'
               }
             ].map((feature) => (
-              <div key={feature.title} className="flex flex-col bg-emerald-50 p-8 rounded-2xl border border-emerald-100 transition-hover duration-300 hover:shadow-lg">
+              <div key={feature.title} className="flex flex-col bg-primary-50 p-8 rounded-2xl border border-primary-100 transition-hover duration-300 hover:shadow-lg">
                 <dt className="flex items-center gap-x-3 text-xl font-bold leading-7 text-gray-900">
                   <span className="text-3xl">{feature.icon}</span>
                   {feature.title}
