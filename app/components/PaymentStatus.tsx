@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import confetti from 'canvas-confetti';
 
 export default function PaymentStatus() {
   const searchParams = useSearchParams();
@@ -10,16 +11,46 @@ export default function PaymentStatus() {
 
   useEffect(() => {
     const statusParam = searchParams.get('status');
-    if (statusParam) {
+    const paymentId = searchParams.get('payment_id');
+
+    if (statusParam || paymentId) {
       setStatus(statusParam);
       setIsVisible(true);
+
+      // Si el pago es aprobado, disparamos la celebración 🎉
+      if (statusParam === 'approved') {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#0ea5e9', '#38bdf8', '#7dd3fc', '#ffffff']
+        });
+      }
+
+      // Limpiamos la URL después de 2 segundos para que se vea elegante
+      const timerClean = setTimeout(() => {
+        const url = new URL(window.location.href);
+        ['status', 'payment_id', 'merchant_order_id', 'payment_type', 'preference_id', 'site_id', 'processing_mode'].forEach(p => {
+          url.searchParams.delete(p);
+        });
+        window.history.replaceState({}, '', url.pathname + url.search);
+      }, 3000);
+
+      // Polling suave si es aprobado para confirmar
+      if (paymentId && statusParam === 'approved') {
+        fetch(`/api/payments/status/${paymentId}`).then(res => res.json()).then(data => {
+          console.log('Confirmación servidor:', data.status);
+        }).catch(console.error);
+      }
       
-      // La notificación desaparece sola después de 10 segundos
-      const timer = setTimeout(() => {
+      const timerHide = setTimeout(() => {
         setIsVisible(false);
       }, 10000);
       
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timerClean);
+        clearTimeout(timerHide);
+      };
     }
   }, [searchParams]);
 
