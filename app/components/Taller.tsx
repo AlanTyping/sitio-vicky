@@ -5,6 +5,7 @@ import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import Timer from './Timer';
 import { PRODUCTS } from '@/config/products';
 import { usePayment } from '@/hooks/usePayment';
+import WalletButton from './ui/WalletButton';
 
 // Inicializamos Mercado Pago
 initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY || '');
@@ -85,16 +86,16 @@ export default function Taller() {
             </ul>
           </div>
         </div>
-{/* Oferta y Checkout */}
-<div className="mt-20 bg-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white relative shadow-2xl">
-  {/* Decorative background for the card - Moved overflow-hidden here */}
-  <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
-  </div>
+        {/* Oferta y Checkout */}
+        <div className="mt-20 bg-slate-900 rounded-3xl p-8 sm:p-12 text-center text-white relative shadow-2xl">
+          {/* Decorative background for the card - Moved overflow-hidden here */}
+          <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl" />
+          </div>
 
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl z-30 whitespace-nowrap">
-    Oferta por tiempo limitado
-  </div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest shadow-xl z-30 whitespace-nowrap">
+            Oferta por tiempo limitado
+          </div>
 
 
           <div className="mb-12 relative z-10">
@@ -109,26 +110,18 @@ export default function Taller() {
               <span className="text-sm text-slate-400 ml-2">{currency}</span>
             </div>
 
-            {!preferenceId ? (
+            {preferenceId ? (
+              <div id="wallet_container" className="w-full max-w-xs">
+                <WalletButton preferenceId={preferenceId} />
+              </div>
+            ) : (
               <button
                 onClick={() => startCheckout('TALLER')}
                 disabled={isLoading}
                 className="w-full sm:w-auto bg-sky-500 px-12 py-4 rounded-xl font-bold text-lg hover:bg-sky-600 transition-all disabled:opacity-50 shadow-xl shadow-sky-500/20 active:scale-95 flex items-center justify-center gap-3"
               >
-                {isLoading ? (
-                  <>
-                    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                    </svg>
-                    Preparando tu lugar...
-                  </>
-                ) : '¡Quiero mi lugar ahora!'}
+                {isLoading ? 'Preparando tu lugar...' : '¡Quiero mi lugar ahora!'}
               </button>
-            ) : (
-              <div id="wallet_container" className="w-full max-w-xs animate-in fade-in zoom-in duration-300">
-                <Wallet initialization={{ preferenceId }} />
-              </div>
             )}
           </div>
 
