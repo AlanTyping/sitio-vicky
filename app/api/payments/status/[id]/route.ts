@@ -7,10 +7,10 @@ const client = new MercadoPagoConfig({
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const paymentId = params.id;
+    const { id: paymentId } = await params;
     const payment = new Payment(client);
     const result = await payment.get({ id: paymentId });
 
