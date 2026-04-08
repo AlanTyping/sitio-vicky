@@ -24,12 +24,12 @@ export async function POST(request: Request) {
             currency_id: 'ARS',
           },
         ],
-        back_urls: {
-          success: `${baseUrl}/success`,
-          failure: `${baseUrl}/failure`,
-          pending: `${baseUrl}/pending`,
+        backUrls: {
+          success: `${baseUrl}/`,
+          failure: `${baseUrl}/`,
+          pending: `${baseUrl}/`,
         },
-        auto_return: 'approved',
+        autoReturn: 'approved',
       },
     } as any);
 
