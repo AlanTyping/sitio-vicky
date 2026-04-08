@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
     const preference = new Preference(client);
 
-    const baseUrl = process.env.APP_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_URL!;
 
     const result = await preference.create({
       body: {
@@ -25,13 +25,13 @@ export async function POST(request: Request) {
           },
         ],
         back_urls: {
-          success: new URL('/success', baseUrl).toString(),
-          failure: new URL('/failure', baseUrl).toString(),
-          pending: new URL('/pending', baseUrl).toString(),
+          success: `${baseUrl}/success`,
+          failure: `${baseUrl}/failure`,
+          pending: `${baseUrl}/pending`,
         },
         auto_return: 'approved',
       },
-    });
+    } as any);
 
     return NextResponse.json({ id: result.id });
   } catch (error) {
