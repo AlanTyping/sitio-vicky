@@ -55,7 +55,7 @@ export default function Payment() {
                     </button>
                   ) : (
                     <div className="animate-in fade-in zoom-in duration-300">
-                      <Wallet initialization={{ preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} />
+                      <Wallet initialization={{ preferenceId }} />
                     </div>
                   )}
                 </div>
