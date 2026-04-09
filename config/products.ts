@@ -2,8 +2,8 @@ export const PRODUCTS = {
   TALLER: {
     id: 'taller-emocional-docentes',
     title: 'Taller de Gestión Emocional para Docentes',
-    price: 1,
-    oldPrice: 2,
+    price: 100,
+    oldPrice: 200,
     currency: 'ARS',
   },
   SESION_INDIVIDUAL: {
