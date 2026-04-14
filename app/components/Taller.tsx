@@ -54,7 +54,7 @@ export default function Taller() {
                 <span>•</span> Agotamiento mental antes de llegar al mediodía.
               </li>
               <li className="flex gap-x-3 italic">
-                <span>•</span> Sensación de que el grupo te "desborda" emocionalmente.
+                <span>•</span> Sensación de que el grupo te &quot;desborda&quot; emocionalmente.
               </li>
               <li className="flex gap-x-3 italic">
                 <span>•</span> Falta de herramientas prácticas para manejar conflictos.
@@ -78,7 +78,7 @@ export default function Taller() {
                 <span className="font-bold text-sky-600">✓</span> Técnicas de comunicación no violenta para el aula.
               </li>
               <li className="flex gap-x-3">
-                <span className="font-bold text-sky-600">✓</span> Método de "Reseteo Consciente" post-clase.
+                <span className="font-bold text-sky-600">✓</span> Método de &quot;Reseteo Consciente&quot; post-clase.
               </li>
               <li className="flex gap-x-3">
                 <span className="font-bold text-sky-600">✓</span> Plan de autocuidado realista para el calendario escolar.

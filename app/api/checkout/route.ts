@@ -2,6 +2,7 @@ import { client } from '@/lib/mercadopago';
 import { Preference } from 'mercadopago';
 import { NextResponse } from 'next/server';
 import { PRODUCTS, ProductKey } from '@/config/products';
+import crypto from 'crypto';
 
 export async function POST(request: Request) {
   try {
@@ -33,8 +34,8 @@ export async function POST(request: Request) {
           pending: `${baseUrl}/`,
         },
         autoReturn: 'approved',
-        // Opcional: Para el webhook
-        external_reference: `${productKey}-${Date.now()}`,
+        // Formato solicitado: productKey:uuid
+        external_reference: `${productKey}:${crypto.randomUUID()}`,
       },
     } as any);
 

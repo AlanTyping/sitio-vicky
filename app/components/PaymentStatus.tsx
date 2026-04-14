@@ -1,94 +1,156 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import confetti from 'canvas-confetti';
+
+type PaymentStatusType =
+  | 'approved'
+  | 'rejected'
+  | 'pending'
+  | 'in_process'
+  | null;
 
 export default function PaymentStatus() {
   const searchParams = useSearchParams();
-  const [status, setStatus] = useState<string | null>(null);
+  const paymentId = searchParams.get('payment_id');
+
+  const [status, setStatus] = useState<PaymentStatusType>('pending');
   const [isVisible, setIsVisible] = useState(false);
 
+  const pollingRef = useRef<NodeJS.Timeout | null>(null);
+
+  const checkPaymentStatus = useCallback(async (paymentId: string) => {
+    try {
+      const res = await fetch(`/api/payments/status/${paymentId}`);
+      const data = await res.json();
+
+      if (!data?.status) return;
+
+      setStatus(data.status);
+
+      if (data.status === 'approved' || data.status === 'rejected') {
+        if (pollingRef.current) {
+          clearInterval(pollingRef.current);
+          pollingRef.current = null;
+        }
+
+        if (data.status === 'approved') {
+          confetti({
+            particleCount: 160,
+            spread: 80,
+            origin: { y: 0.6 },
+            colors: ['#0ea5e9', '#38bdf8', '#7dd3fc', '#ffffff'],
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error polling payment status:', error);
+    }
+  }, []);
+
   useEffect(() => {
-    const statusParam = searchParams.get('status');
-    const paymentId = searchParams.get('payment_id');
+    if (!paymentId) return;
 
-    if (statusParam || paymentId) {
-      setStatus(statusParam);
-      setIsVisible(true);
+    setIsVisible(true);
+    setStatus('pending'); // ❗ Nunca confiar en la URL
 
-      // Si el pago es aprobado, disparamos la celebración 🎉
-      if (statusParam === 'approved') {
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#0ea5e9', '#38bdf8', '#7dd3fc', '#ffffff']
-        });
+    let attempts = 0;
+    const MAX_ATTEMPTS = 10;
+
+    // 🔥 Primera ejecución inmediata
+    checkPaymentStatus(paymentId);
+
+    // 🔁 Polling controlado
+    pollingRef.current = setInterval(() => {
+      attempts++;
+
+      if (attempts >= MAX_ATTEMPTS) {
+        if (pollingRef.current) {
+          clearInterval(pollingRef.current);
+          pollingRef.current = null;
+        }
+        return;
       }
 
-      // Limpiamos la URL después de 2 segundos para que se vea elegante
-      const timerClean = setTimeout(() => {
-        const url = new URL(window.location.href);
-        ['status', 'payment_id', 'merchant_order_id', 'payment_type', 'preference_id', 'site_id', 'processing_mode'].forEach(p => {
-          url.searchParams.delete(p);
-        });
-        window.history.replaceState({}, '', url.pathname + url.search);
-      }, 3000);
+      checkPaymentStatus(paymentId);
+    }, 3000);
 
-      // Polling suave si es aprobado para confirmar
-      if (paymentId && statusParam === 'approved') {
-        fetch(`/api/payments/status/${paymentId}`).then(res => res.json()).then(data => {
-          console.log('Confirmación servidor:', data.status);
-        }).catch(console.error);
+    // 🧹 Limpieza de URL elegante
+    const timerClean = setTimeout(() => {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('payment_id');
+      window.history.replaceState({}, '', url.pathname);
+    }, 5000);
+
+    return () => {
+      if (pollingRef.current) {
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
       }
-      
+
+      if (timerClean) clearTimeout(timerClean);
+    };
+  }, [paymentId, checkPaymentStatus]);
+
+  // 👁️ Manejo de visibilidad
+  useEffect(() => {
+    if (status && status !== 'pending') {
       const timerHide = setTimeout(() => {
         setIsVisible(false);
-      }, 10000);
-      
-      return () => {
-        clearTimeout(timerClean);
-        clearTimeout(timerHide);
-      };
-    }
-  }, [searchParams]);
+      }, 15000);
 
-  if (!isVisible || !status) return null;
+      return () => clearTimeout(timerHide);
+    }
+  }, [status]);
+
+  if (!isVisible || !paymentId) return null;
 
   const config = {
     approved: {
       bg: 'bg-green-100 ring-green-500 text-green-800',
       icon: '✅',
       title: '¡Pago aprobado!',
-      msg: 'Tu lugar en el taller ya está asegurado. Te enviaremos un email con los detalles pronto.',
+      msg: 'Tu acceso está listo. Ya podés continuar.',
     },
     rejected: {
       bg: 'bg-red-100 ring-red-500 text-red-800',
       icon: '❌',
       title: 'Pago rechazado',
-      msg: 'Hubo un problema con tu pago. Por favor, intenta de nuevo o usa otro medio.',
+      msg: 'Hubo un problema con el pago. Intentá nuevamente.',
     },
     pending: {
       bg: 'bg-yellow-100 ring-yellow-500 text-yellow-800',
       icon: '⏳',
-      title: 'Pago pendiente',
-      msg: 'Estamos procesando tu pago. Te avisaremos apenas se confirme.',
+      title: 'Confirmando pago...',
+      msg: 'Estamos verificando tu pago. Esto puede tardar unos segundos.',
     },
-  }[status as 'approved' | 'rejected' | 'pending'] || null;
-
-  if (!config) return null;
+    in_process: {
+      bg: 'bg-blue-100 ring-blue-500 text-blue-800',
+      icon: '🔵',
+      title: 'Pago en proceso',
+      msg: 'Mercado Pago está validando tu pago.',
+    },
+  }[status as Exclude<PaymentStatusType, null>] || {
+    bg: 'bg-gray-100 ring-gray-500 text-gray-800',
+    icon: 'ℹ️',
+    title: 'Estado del pago',
+    msg: `Estado actual: ${status}`,
+  };
 
   return (
     <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4 animate-in fade-in slide-in-from-top-4 duration-500">
       <div className={`${config.bg} p-6 rounded-2xl shadow-xl ring-2 flex gap-4 items-start relative`}>
-        <button 
+
+        <button
           onClick={() => setIsVisible(false)}
           className="absolute top-2 right-4 text-xl opacity-50 hover:opacity-100"
         >
           ×
         </button>
-        <span className="text-3xl">{config.icon}</span>
+
+        <span className="text-3xl animate-pulse">{config.icon}</span>
+
         <div>
           <h4 className="font-bold text-lg mb-1">{config.title}</h4>
           <p className="text-sm leading-relaxed">{config.msg}</p>
