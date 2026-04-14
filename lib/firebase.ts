@@ -1,18 +1,22 @@
 import admin from 'firebase-admin';
 
 if (!admin.apps.length) {
+  if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
+    throw new Error('FIREBASE_SERVICE_ACCOUNT no está definido');
+  }
+
   try {
-    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-    } else {
-      // Fallback para desarrollo local si se usan Application Default Credentials
-      admin.initializeApp();
-    }
+    const serviceAccount = JSON.parse(
+      process.env.FIREBASE_SERVICE_ACCOUNT
+    );
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    });
+
   } catch (error) {
-    console.error('Firebase admin initialization error', error);
+    console.error('🔥 Error inicializando Firebase:', error);
+    throw error; // ❗ IMPORTANTE: no silenciar
   }
 }
 
