@@ -16,6 +16,14 @@ export async function POST(request: Request) {
 
     const preference = new Preference(client);
     const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://sitio-vicky.vercel.app';
+    
+    // Mapeo de anclas por producto
+    const anchors: Record<string, string> = {
+      'TALLER': '#taller',
+      'EBOOK': '#ebook',
+      'SESION_INDIVIDUAL': '#pago'
+    };
+    const anchor = anchors[productKey] || '#pago';
 
     const result = await preference.create({
       body: {
@@ -30,7 +38,7 @@ export async function POST(request: Request) {
         ],
         backUrls: {
           success: `${baseUrl}/`,
-          failure: `${baseUrl}/`,
+          failure: `${baseUrl}/${anchor}`,
           pending: `${baseUrl}/`,
         },
         autoReturn: 'approved',

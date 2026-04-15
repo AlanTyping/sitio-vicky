@@ -9,7 +9,7 @@ export const PRODUCTS = {
   SESION_INDIVIDUAL: {
     id: 'sesion-individual-apoyo',
     title: 'Sesión Individual de Apoyo Emocional',
-    price: 12000, // Precio de ejemplo, puedes ajustarlo
+    price: 12000,
     currency: 'ARS',
     duration: '60 min',
     features: [
@@ -17,6 +17,20 @@ export const PRODUCTS = {
       'Duración de 60 min',
       'Soporte vía WhatsApp',
       'Material complementario'
+    ]
+  },
+  EBOOK: {
+    id: 'ebook-aula-desordenada',
+    title: 'Ebook: CUANDO EL AULA SE DESORDENA',
+    price: 0.1,
+    oldPrice: 0.2,
+    currency: 'ARS',
+    subtitle: 'Qué hacer en el momento justo - sin perder la clase',
+    features: [
+      'Guía paso a paso para situaciones críticas',
+      'Técnicas de regulación grupal inmediata',
+      'Protocolos de comunicación asertiva',
+      'Acceso de por vida en PDF'
     ]
   }
 } as const;
