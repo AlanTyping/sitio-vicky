@@ -59,8 +59,9 @@ export async function POST(request: Request) {
                   <h1 style="color: #0ea5e9;">¡Gracias por tu compra!</h1>
                   <p>Ya podés descargar tu ebook <strong>"CUANDO EL AULA SE DESORDENA"</strong> y empezar a transformar tu aula hoy mismo.</p>
                   <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
-                    <h2 style="font-size: 18px; margin-top: 0;">Tu descarga está lista:</h2>
-                    <a href="https://sitio-vicky.vercel.app/descargas/ebook-aula-desordenada.pdf" style="display: inline-block; background-color: #0ea5e9; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Descargar Ebook (PDF)</a>
+                    <h2 style="font-size: 18px; margin-top: 0;">Tu descarga segura está lista:</h2>
+                    <p style="font-size: 14px; color: #64748b; margin-bottom: 20px;">Este enlace es personal y exclusivo para tu compra.</p>
+                    <a href="https://sitio-vicky.vercel.app/api/download/${paymentId}" style="display: inline-block; background-color: #0ea5e9; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Descargar Ebook (PDF)</a>
                   </div>
                   <p style="font-size: 14px; color: #64748b;">Si tenés algún problema con la descarga, simplemente respondé a este email y te ayudaremos.</p>
                   <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
