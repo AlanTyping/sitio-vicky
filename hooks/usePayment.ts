@@ -16,8 +16,9 @@ export function usePayment() {
         body: JSON.stringify({ productKey }),
       });
       const data = await response.json();
-      if (data.id) {
-        setPreferenceId(data.id);
+      if (data.init_point) {
+        // Redirección directa a Mercado Pago
+        window.location.href = data.init_point;
       } else {
         throw new Error(data.error || 'Error al iniciar pago');
       }

@@ -47,7 +47,10 @@ export async function POST(request: Request) {
       },
     } as any);
 
-    return NextResponse.json({ id: result.id });
+    return NextResponse.json({ 
+      id: result.id, 
+      init_point: result.init_point 
+    });
   } catch (error) {
     console.error('Mercado Pago Error:', error);
     return NextResponse.json({ error: 'Error al procesar el pago' }, { status: 500 });

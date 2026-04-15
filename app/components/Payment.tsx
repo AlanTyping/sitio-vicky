@@ -45,19 +45,13 @@ export default function Payment() {
                 </p>
                 
                 <div className="mt-10">
-                  {!preferenceId ? (
-                    <button
-                      onClick={() => startCheckout('SESION_INDIVIDUAL')}
-                      disabled={isLoading}
-                      className="block w-full rounded-md bg-sky-600 px-3 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-sky-500 transition-all active:scale-95 disabled:opacity-50"
-                    >
-                      {isLoading ? 'Preparando pago...' : 'Contratar ahora'}
-                    </button>
-                  ) : (
-                    <div className="animate-in fade-in zoom-in duration-300">
-                      <Wallet initialization={{ preferenceId }} />
-                    </div>
-                  )}
+                  <button
+                    onClick={() => startCheckout('SESION_INDIVIDUAL')}
+                    disabled={isLoading}
+                    className="block w-full rounded-md bg-sky-600 px-3 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-sky-500 transition-all active:scale-95 disabled:opacity-50"
+                  >
+                    {isLoading ? 'Redirigiendo...' : 'Contratar ahora'}
+                  </button>
                 </div>
                 
                 <p className="mt-6 text-xs leading-5 text-slate-600">

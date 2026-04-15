@@ -72,22 +72,15 @@ export default function Ebook() {
                 <span className="text-sm text-emerald-800 font-bold uppercase tracking-wider">{currency}</span>
               </div>
 
-              {!preferenceId ? (
-                <button
-                  onClick={() => startCheckout('EBOOK')}
-                  disabled={isLoading}
-                  className="w-full bg-[#022c22] hover:bg-emerald-900 text-[#ffffcd] font-black py-4 px-6 rounded-xl shadow-lg transition-all active:scale-95 disabled:opacity-50 text-lg flex items-center justify-center gap-2 relative z-10"
-                >
-                  {isLoading ? 'Generando orden...' : '¡Quiero el ebook ahora!'}
-                </button>
-              ) : (
-                <div className="animate-in fade-in zoom-in duration-300 relative z-10">
-                  <WalletButton preferenceId={preferenceId} />
-                </div>
-              )}
+              <button
+                onClick={() => startCheckout('EBOOK')}
+                disabled={isLoading}
+                className="w-full bg-[#022c22] hover:bg-emerald-900 text-[#ffffcd] font-black py-4 px-6 rounded-xl shadow-lg transition-all active:scale-95 disabled:opacity-50 text-lg flex items-center justify-center gap-2 relative z-10"
+              >
+                {isLoading ? 'Redirigiendo a Mercado Pago...' : '¡Quiero el ebook ahora!'}
+              </button>
 
-              <p className="mt-4 text-center text-xs text-emerald-900/60 font-medium relative z-10">
-                Entrega inmediata vía email tras la confirmación del pago.
+              <p className="mt-4 text-center text-xs text-emerald-900/60 font-medium relative z-10">                Entrega inmediata vía email tras la confirmación del pago.
               </p>
             </div>
           </div>
