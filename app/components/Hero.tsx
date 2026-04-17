@@ -1,6 +1,8 @@
+'use client';
+
 export default function Hero() {
   return (
-    <section className="relative h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section className="relative min-h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
       {/* Background Video Layer (Full Screen) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -14,86 +16,86 @@ export default function Hero() {
           Tu navegador no soporta videos.
         </video>
         {/* Dark Overlay with Gradient */}
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 flex-1 w-full flex flex-col items-center justify-start pt-20 lg:pt-32 px-6 pb-12 lg:px-12">
+      <div className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-28 lg:pt-32 px-6 pb-20 lg:px-12">
         
         {/* Title & Subtitle */}
-        <div className="text-center mb-16 lg:mb-24">
-          <h1 className="text-[48px] sm:text-[72px] lg:text-[96px] font-extrabold tracking-tight text-white leading-[0.85] drop-shadow-2xl">
+        <div className="text-center mb-12 lg:mb-20">
+          <h1 className="text-[42px] sm:text-[72px] lg:text-[96px] font-extrabold tracking-tight text-white leading-[0.9] drop-shadow-2xl">
             Habitar el aula
           </h1>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <span className="h-px w-8 bg-white/40"></span>
-            <p className="text-[14px] lg:text-[18px] font-medium text-white/90 tracking-[0.3em] uppercase">
+          <div className="mt-6 flex items-center justify-center gap-3 lg:gap-4">
+            <span className="h-px w-6 lg:w-8 bg-white/40"></span>
+            <p className="text-[12px] lg:text-[18px] font-medium text-white/90 tracking-[0.2em] lg:tracking-[0.3em] uppercase">
               Formación docente consciente
             </p>
-            <span className="h-px w-8 bg-white/40"></span>
+            <span className="h-px w-6 lg:w-8 bg-white/40"></span>
           </div>
         </div>
 
         {/* Info Containers Row (Educational "Notepad" Style) */}
-        <div className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           
           {/* Card 1: Qué solucionamos */}
-          <div className="bg-white/95 backdrop-blur-md p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h6"/><path d="M8 11h8"/><path d="M8 15h6"/></svg>
             </div>
-            <div className="flex items-center gap-3 mb-4 text-slate-800">
+            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
               <div className="p-2 bg-sky-50 text-sky-600 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
               <h3 className="text-lg font-bold tracking-tight">Qué solucionamos</h3>
             </div>
-            <p className="text-slate-600 leading-relaxed text-[15px]">
+            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Herramientas prácticas para transformar el estrés en bienestar y mejorar la gestión vincular en el día a día escolar.
             </p>
           </div>
 
           {/* Card 2: Propuesta */}
-          <div className="bg-white/95 backdrop-blur-md p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-amber-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-amber-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.7 1.5-1.7 1.5-3 0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.3.5 2.3 1.5 3 .8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
             </div>
-            <div className="flex items-center gap-3 mb-4 text-slate-800">
+            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
               <div className="p-2 bg-amber-50 text-amber-600 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
               </div>
               <h3 className="text-lg font-bold tracking-tight">Propuesta</h3>
             </div>
-            <p className="text-slate-600 leading-relaxed text-[15px]">
+            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Espacios de formación y reflexión para recuperar el sentido de la tarea educativa con criterio y claridad.
             </p>
           </div>
 
           {/* Card 3: Para quién */}
-          <div className="bg-white/95 backdrop-blur-md p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-emerald-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-blue-400 relative overflow-hidden group hover:bg-white transition-all duration-300">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <div className="flex items-center gap-3 mb-4 text-slate-800">
-              <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg">
+            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
+              <div className="p-2 bg-blue-50 text-blue-500 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
               <h3 className="text-lg font-bold tracking-tight">Para quién</h3>
             </div>
-            <p className="text-slate-600 leading-relaxed text-[15px]">
+            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Docentes, directivos y profesionales de la educación que buscan habitar el aula con mayor bienestar.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Floating White Arrow on Video */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-        <div className="animate-bounce">
+      {/* Floating White Arrow (Hidden on small mobile screens to prevent overlap) */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:block">
+        <div className="animate-bounce opacity-50">
           <svg 
-            width="24" 
-            height="60" 
+            width="20" 
+            height="40" 
             viewBox="0 0 24 60" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
