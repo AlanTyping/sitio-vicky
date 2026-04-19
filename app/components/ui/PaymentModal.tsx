@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -10,7 +11,21 @@ interface PaymentModalProps {
 }
 
 export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: PaymentModalProps) {
+  const [copied, setCopied] = useState(false);
+  const phoneNumber = "+54 9 2204 70-9105";
+  const cleanNumber = "5492204709105"; // Formato internacional completo sin símbolos
+
   if (!isOpen) return null;
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(phoneNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Falló al copiar: ', err);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -58,26 +73,36 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
             </div>
 
             {/* WhatsApp Button */}
-            <a
-              href="https://wa.me/5491122334455?text=Hola!%20Acabo%20de%20ver%20tu%20Ebook%20y%20me%20gustaría%20obtenerlo.%20¿Cómo%20podemos%20hacer?"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black py-4 px-6 rounded-2xl shadow-lg shadow-green-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <div className="space-y-3">
+              <a
+                href={`https://wa.me/${cleanNumber}?text=Hola!%20Acabo%20de%20ver%20tu%20Ebook%20y%20me%20gustaría%20obtenerlo.%20¿Cómo%20podemos%20hacer?`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black py-4 px-6 rounded-2xl shadow-lg shadow-green-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg group"
               >
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              Contactar por WhatsApp
-            </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24" height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Contactar por WhatsApp
+              </a>
+              
+              <button 
+                onClick={handleCopy}
+                className="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 transition-colors text-sm font-bold group"
+              >
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">📋</span>
+                {copied ? '¡Copiado!' : `Copiar número: ${phoneNumber}`}
+              </button>
+            </div>
           </div>
 
           <p className="mt-8 text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">

@@ -13,10 +13,11 @@ type PaymentStatusType =
 
 export default function PaymentStatus() {
   const searchParams = useSearchParams();
-  const paymentId = searchParams.get('payment_id');
+  const paymentIdFromUrl = searchParams.get('payment_id');
 
   const [status, setStatus] = useState<PaymentStatusType>('pending');
   const [isVisible, setIsVisible] = useState(false);
+  const [activePaymentId, setActivePaymentId] = useState<string | null>(null);
 
   const pollingRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -49,17 +50,23 @@ export default function PaymentStatus() {
     }
   }, []);
 
+  // Capturar el ID de la URL solo una vez al inicio
   useEffect(() => {
-    if (!paymentId) return;
+    if (paymentIdFromUrl && !activePaymentId) {
+      setActivePaymentId(paymentIdFromUrl);
+      setIsVisible(true);
+      setStatus('pending');
+    }
+  }, [paymentIdFromUrl, activePaymentId]);
 
-    setIsVisible(true);
-    setStatus('pending'); // ❗ Nunca confiar en la URL
+  useEffect(() => {
+    if (!activePaymentId) return;
 
     let attempts = 0;
-    const MAX_ATTEMPTS = 10;
+    const MAX_ATTEMPTS = 20; // Aumentado para dar más margen
 
     // 🔥 Primera ejecución inmediata
-    checkPaymentStatus(paymentId);
+    checkPaymentStatus(activePaymentId);
 
     // 🔁 Polling controlado
     pollingRef.current = setInterval(() => {
@@ -73,14 +80,16 @@ export default function PaymentStatus() {
         return;
       }
 
-      checkPaymentStatus(paymentId);
+      checkPaymentStatus(activePaymentId);
     }, 3000);
 
-    // 🧹 Limpieza de URL elegante
+    // 🧹 Limpieza de URL elegante (se mantiene en 5s, pero ahora no rompe el componente)
     const timerClean = setTimeout(() => {
       const url = new URL(window.location.href);
-      url.searchParams.delete('payment_id');
-      window.history.replaceState({}, '', url.pathname);
+      if (url.searchParams.has('payment_id')) {
+        url.searchParams.delete('payment_id');
+        window.history.replaceState({}, '', url.pathname);
+      }
     }, 5000);
 
     return () => {
@@ -88,12 +97,11 @@ export default function PaymentStatus() {
         clearInterval(pollingRef.current);
         pollingRef.current = null;
       }
-
       if (timerClean) clearTimeout(timerClean);
     };
-  }, [paymentId, checkPaymentStatus]);
+  }, [activePaymentId, checkPaymentStatus]);
 
-  if (!isVisible || !paymentId) return null;
+  if (!isVisible) return null;
 
   const config = {
     approved: {

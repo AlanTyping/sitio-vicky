@@ -66,7 +66,7 @@ function buildEmailContent(productKey: string | null, paymentId: string, downloa
           <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h2 style="font-size: 18px; margin-top: 0;">¿Cómo agendamos?</h2>
             <p>Por favor, hacé clic en el siguiente botón para coordinar el día y horario de nuestra sesión por WhatsApp:</p>
-            <a href="https://wa.me/5491100000000?text=Hola%20Vicky!%20Ya%20realicé%20el%20pago%20de%20mi%20sesión%20individual.%20Me%20gustaría%20agendar." style="display: inline-block; background-color: #25d366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Agendar por WhatsApp</a>
+            <a href="https://wa.me/5492204709105?text=Hola%20Vicky!%20Ya%20realicé%20el%20pago%20de%20mi%20sesión%20individual.%20Me%20gustaría%20agendar." style="display: inline-block; background-color: #25d366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Agendar por WhatsApp</a>
           </div>
           <p style="font-size: 14px; color: #64748b;">Te espero con muchas ganas para empezar a trabajar juntas.</p>
           <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
