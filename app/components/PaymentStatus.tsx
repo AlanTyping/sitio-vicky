@@ -93,17 +93,6 @@ export default function PaymentStatus() {
     };
   }, [paymentId, checkPaymentStatus]);
 
-  // 👁️ Manejo de visibilidad
-  useEffect(() => {
-    if (status && status !== 'pending') {
-      const timerHide = setTimeout(() => {
-        setIsVisible(false);
-      }, 15000);
-
-      return () => clearTimeout(timerHide);
-    }
-  }, [status]);
-
   if (!isVisible || !paymentId) return null;
 
   const config = {
