@@ -111,7 +111,7 @@ export default function PaymentStatus() {
       bg: 'bg-green-100 ring-green-500 text-green-800',
       icon: '✅',
       title: '¡Pago aprobado!',
-      msg: 'Tu acceso está listo. Ya podés continuar.',
+      msg: '¡Tu acceso está listo! Por favor, checkeá tu email (incluyendo spam) para descargar tu Ebook.',
     },
     rejected: {
       bg: 'bg-red-100 ring-red-500 text-red-800',

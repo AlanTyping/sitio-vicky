@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Info Containers Row (Educational "Notepad" Style) */}
         <div className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           
-          {/* Card 1: Qué solucionamos */}
+          {/* Card 1: Qué soluciono */}
           <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M8 7h6"/><path d="M8 11h8"/><path d="M8 15h6"/></svg>
@@ -49,10 +49,10 @@ export default function Hero() {
               <div className="p-2 bg-sky-50 text-sky-600 rounded-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
               </div>
-              <h3 className="text-lg font-bold tracking-tight">Qué solucionamos</h3>
+              <h3 className="text-lg font-bold tracking-tight">Qué soluciono</h3>
             </div>
             <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
-              Herramientas prácticas para transformar el estrés en bienestar y mejorar la gestión vincular en el día a día escolar.
+              Te ayudo a resolver el agotamiento, la falta de respuesta de los grupos y el desgaste emocional que genera la gestión de conflictos diarios.
             </p>
           </div>
 

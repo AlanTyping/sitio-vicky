@@ -60,6 +60,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       id: result.id,
+      preferenceId: result.id,
       init_point: result.init_point,
       sandbox_init_point: result.sandbox_init_point,
       external_reference: externalReference,

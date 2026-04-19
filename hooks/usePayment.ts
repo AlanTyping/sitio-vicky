@@ -5,6 +5,7 @@ import { ProductKey } from '@/config/products';
 
 export function usePayment() {
   const [preferenceId, setPreferenceId] = useState<string | null>(null);
+  const [initPoint, setInitPoint] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const startCheckout = async (productKey: ProductKey) => {
@@ -16,9 +17,10 @@ export function usePayment() {
         body: JSON.stringify({ productKey }),
       });
       const data = await response.json();
-      if (data.init_point) {
-        // Redirección directa a Mercado Pago
-        window.location.href = data.init_point;
+      if (data.preferenceId) {
+        setPreferenceId(data.preferenceId);
+        setInitPoint(data.init_point);
+        return data;
       } else {
         throw new Error(data.error || 'Error al iniciar pago');
       }
@@ -32,11 +34,13 @@ export function usePayment() {
 
   const resetPayment = () => {
     setPreferenceId(null);
+    setInitPoint(null);
     setIsLoading(false);
   };
 
   return {
     preferenceId,
+    initPoint,
     isLoading,
     startCheckout,
     resetPayment,
