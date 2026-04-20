@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function FreeGuide() {
   return (
@@ -40,21 +41,30 @@ export default function FreeGuide() {
                 'Tips para la gestión de conflictos',
                 'Ejercicios breves de autocuidado',
                 'Recursos listos para aplicar'
-              ].map((feature) => (
-                <li key={feature} className="flex items-center gap-4 text-slate-700 font-semibold group cursor-default">
+              ].map((feature, index) => (
+                <motion.li 
+                  key={feature} 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-center gap-4 text-slate-700 font-semibold group cursor-default"
+                >
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-md group-hover:bg-amber-500 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </span>
                   <span className="group-hover:translate-x-1 transition-transform">{feature}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
             <div className="pt-4 flex flex-col items-center lg:items-start">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 href="/pdf/botiquin-docente.pdf"
                 download
-                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] text-lg group"
+                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg group"
               >
                 Descargar Guía Gratis
                 <svg
@@ -72,18 +82,17 @@ export default function FreeGuide() {
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-              </a>
+              </motion.a>
               <p className="mt-4 text-sm text-slate-400 font-medium italic">
                 PDF gratuito • Descarga instantánea
               </p>
             </div>
           </div>
 
-          {/* Visual: Mockup con Imagen Real */}
+          {/* Visual: Mockup con Imagen Real - ESTÁTICO como pediste */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700 hover:scale-[1.02]">
-              {/* Sombra proyectada mejorada */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-slate-900/30 blur-3xl rounded-full transition-opacity group-hover:opacity-60" />
+            <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700">
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-slate-900/30 blur-3xl rounded-full" />
               
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-2xl ring-1 ring-slate-200 bg-white p-4">
                 <div className="relative h-full w-full rounded-xl overflow-hidden bg-slate-50">

@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
@@ -25,19 +27,29 @@ export default function Hero() {
         
         {/* Title & Subtitle */}
         <div className="text-center mb-12 lg:mb-20">
-          <h1 className="text-[42px] sm:text-[72px] lg:text-[96px] font-extrabold tracking-tight text-white leading-[0.9] drop-shadow-2xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-[42px] sm:text-[72px] lg:text-[96px] font-extrabold tracking-tight text-white leading-[0.9] drop-shadow-2xl"
+          >
             Habitar el aula
-          </h1>
-          <div className="mt-6 flex items-center justify-center gap-3 lg:gap-4">
+          </motion.h1>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-6 flex items-center justify-center gap-3 lg:gap-4"
+          >
             <span className="h-px w-6 lg:w-8 bg-white/40"></span>
             <p className="text-[12px] lg:text-[18px] font-medium text-white/90 tracking-[0.2em] lg:tracking-[0.3em] uppercase">
               Formación docente consciente
             </p>
             <span className="h-px w-6 lg:w-8 bg-white/40"></span>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Info Containers Row (Educational "Notepad" Style) */}
+        {/* Info Containers Row - ESTÁTICOS para evitar parpadeos y conflicto con CSS transitions */}
         <div className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           
           {/* Card 1: Qué soluciono */}
@@ -90,7 +102,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating White Arrow (Hidden on small mobile screens to prevent overlap) */}
+      {/* Floating White Arrow */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:block">
         <div className="animate-bounce opacity-50">
           <svg 
