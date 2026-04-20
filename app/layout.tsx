@@ -60,7 +60,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900">
+      <body className={`${lexend.variable} font-sans min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900`}>
         {children}
       </body>
     </html>

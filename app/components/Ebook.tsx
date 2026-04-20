@@ -116,10 +116,27 @@ export default function Ebook() {
                     </div>
                   ))}
                 </div>
+
+                {/* Slider Dots */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImage(idx);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        currentImage === idx ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"
+                      }`}
+                      aria-label={`Ir a imagen ${idx + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Floating Badge - Resalta con fuerza sobre el fondo oscuro */}
-              <div className="absolute -top-6 -right-6 bg-[#e80300] text-white px-6 py-3 rounded-full shadow-2xl rotate-12 font-black text-sm uppercase tracking-tighter border-4 border-[#0c2a4a] z-20">
+              {/* Floating Badge - Resalta con armonía sobre el fondo oscuro */}
+              <div className="absolute -top-6 -right-6 bg-rose-500 text-white px-6 py-3 rounded-full shadow-2xl rotate-12 font-black text-sm uppercase tracking-tighter border-4 border-[#0c2a4a] z-20">
                 ¡30% OFF! 🚀
               </div>
             </div>
@@ -163,7 +180,7 @@ export default function Ebook() {
               <div className="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 relative z-10">
                   <div className="space-y-1">
-                    <p className="text-slate-400 text-[11px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
+                    <p className="text-slate-500 text-[13px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
                     <div className="flex items-baseline gap-3">
                       <span className="text-slate-400 line-through text-2xl font-semibold">${oldPrice?.toLocaleString()}</span>
                       <span className="text-5xl lg:text-6xl font-black text-[#0c2a4a]">${price.toLocaleString()}</span>

@@ -2,9 +2,8 @@ import { Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Biography from "./components/Biography";
-import Description from "./components/Description";
+import FreeGuide from "./components/FreeGuide";
 import Ebook from "./components/Ebook";
-import Payment from "./components/Payment";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import PaymentStatus from "./components/PaymentStatus";
@@ -20,6 +19,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Biography />
+        <FreeGuide />
         <Ebook />
         <Contact />
       </main>

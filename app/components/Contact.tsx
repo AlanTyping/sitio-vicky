@@ -52,7 +52,7 @@ export default function Contact() {
             <div className="relative bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.04)] border border-slate-100">
               <form className="space-y-5">
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Nombre completo</label>
+                  <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Nombre completo</label>
                   <input 
                     type="text" 
                     placeholder="Tu nombre"
@@ -61,7 +61,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email</label>
+                  <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email</label>
                   <input 
                     type="email" 
                     placeholder="tu@email.com"
@@ -70,7 +70,7 @@ export default function Contact() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Tu mensaje</label>
+                  <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Tu mensaje</label>
                   <textarea 
                     rows={4} 
                     placeholder="¿En qué puedo ayudarte?"
@@ -78,7 +78,7 @@ export default function Contact() {
                   />
                 </div>
 
-                <button className="w-full bg-slate-900 text-white font-bold py-5 px-8 rounded-2xl shadow-xl shadow-slate-200 hover:bg-black active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 mt-4">
+                <button className="w-full bg-sky-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl shadow-sky-200 hover:bg-sky-700 active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 mt-4">
                   Enviar mensaje
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
