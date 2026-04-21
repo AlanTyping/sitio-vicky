@@ -14,7 +14,7 @@ export default function FreeGuide() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
-          
+
           {/* Contenido */}
           <div className="flex flex-col items-center lg:items-start space-y-8 lg:max-w-2xl order-2 lg:order-1 text-center lg:text-left">
             <div className="space-y-4">
@@ -37,13 +37,12 @@ export default function FreeGuide() {
 
             <ul className="grid grid-cols-1 gap-4 text-left">
               {[
-                'Estrategias de regulación emocional',
-                'Tips para la gestión de conflictos',
-                'Ejercicios breves de autocuidado',
-                'Recursos listos para aplicar'
+                'Método 3c de mediación escolar',
+                'Regulación y desregulación del sistema nervioso docente',
+                'Checklist de reconocimiento emocional - para docentes',
               ].map((feature, index) => (
-                <motion.li 
-                  key={feature} 
+                <motion.li
+                  key={feature}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -93,7 +92,7 @@ export default function FreeGuide() {
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700">
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-slate-900/30 blur-3xl rounded-full" />
-              
+
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-2xl ring-1 ring-slate-200 bg-white p-4">
                 <div className="relative h-full w-full rounded-xl overflow-hidden bg-slate-50">
                   <Image
