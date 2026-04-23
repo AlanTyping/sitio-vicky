@@ -9,7 +9,7 @@ export default function Contact() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
-          
+
           {/* Lado Izquierdo: Info & Instagram */}
           <div className="space-y-10">
             <div className="space-y-6">
@@ -17,15 +17,16 @@ export default function Contact() {
                 Sigamos en <br />
                 <span className="text-sky-600">contacto.</span>
               </h2>
-              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-md">
-                Si sos docente y buscás un espacio de reflexión o tenés alguna duda, escribime. Estoy acá para escucharte.
+              <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-md font-medium ">
+                ¿Querés llevar estas estrategias a tu escuela?
+                Ofrezco capacitaciones y asesorías para equipos docentes.
               </p>
             </div>
 
             {/* Instagram Card - Look más moderno/glassy */}
-            <a 
-              href="https://www.instagram.com/vicky.aphalo/" 
-              target="_blank" 
+            <a
+              href="https://www.instagram.com/vicky.aphalo/"
+              target="_blank"
               rel="noopener noreferrer"
               className="group relative block p-1 rounded-3xl bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] transition-all duration-500 hover:scale-[1.02] shadow-2xl shadow-pink-500/10"
             >
@@ -48,22 +49,22 @@ export default function Contact() {
           <div className="relative">
             {/* Adorno decorativo detrás del formulario */}
             <div className="absolute -inset-4 bg-slate-50 rounded-[3rem] -rotate-2 pointer-events-none" />
-            
+
             <div className="relative bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.04)] border border-slate-100">
               <form className="space-y-5">
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Nombre completo</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     placeholder="Tu nombre"
                     className="w-full bg-slate-50 border-2 border-transparent rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-sky-500/10 focus:bg-white focus:ring-4 focus:ring-sky-500/5 transition-all outline-none"
                   />
                 </div>
-                
+
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Email</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     placeholder="tu@email.com"
                     className="w-full bg-slate-50 border-2 border-transparent rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-sky-500/10 focus:bg-white focus:ring-4 focus:ring-sky-500/5 transition-all outline-none"
                   />
@@ -71,8 +72,8 @@ export default function Contact() {
 
                 <div className="space-y-1.5">
                   <label className="text-[11px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Tu mensaje</label>
-                  <textarea 
-                    rows={4} 
+                  <textarea
+                    rows={4}
                     placeholder="¿En qué puedo ayudarte?"
                     className="w-full bg-slate-50 border-2 border-transparent rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-sky-500/10 focus:bg-white focus:ring-4 focus:ring-sky-500/5 transition-all outline-none resize-none"
                   />

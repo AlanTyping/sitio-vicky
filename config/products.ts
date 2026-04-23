@@ -22,8 +22,8 @@ export const PRODUCTS = {
   EBOOK: {
     id: 'ebook-aula-desordenada',
     title: 'Ebook: CUANDO EL AULA SE DESORDENA',
-    price: 0.1,
-    oldPrice: 0.2,
+    price: 20000,
+    oldPrice: null,
     currency: 'ARS',
     subtitle: 'Qué hacer en el momento justo - sin perder la clase',
     features: [

@@ -105,7 +105,9 @@ export default function Taller() {
 
           <div className="mb-10 h-32 flex flex-col items-center justify-center relative z-10">
             <div className="mb-4">
-              <span className="text-slate-400 line-through text-2xl mr-4">${oldPrice?.toLocaleString()}</span>
+              {oldPrice && (
+                <span className="text-slate-400 line-through text-2xl mr-4">${oldPrice.toLocaleString()}</span>
+              )}
               <span className="text-5xl font-extrabold text-white">${price.toLocaleString()}</span>
               <span className="text-sm text-slate-400 ml-2">{currency}</span>
             </div>

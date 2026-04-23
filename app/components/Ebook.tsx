@@ -16,19 +16,10 @@ export default function Ebook() {
   const { preferenceId, initPoint, isLoading, startCheckout, resetPayment } = usePayment();
   const { title, price, oldPrice, currency, features } = PRODUCTS.EBOOK;
 
-  const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const images = ['/images/ebook.png', '/images/pdf-guide.jpeg'];
-
-  useEffect(() => {
-    if (isModalOpen || isInfoModalOpen || isPaymentModalOpen) return; 
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [images.length, isModalOpen, isInfoModalOpen, isPaymentModalOpen]);
+  const ebookImage = '/images/ebook.png';
 
   const handleOpenInfo = () => {
     setIsInfoModalOpen(true);
@@ -49,12 +40,12 @@ export default function Ebook() {
   return (
     <section id="ebook" className="relative bg-gradient-to-b from-[#0c2a4a] to-[#06162a] py-24 lg:py-32 overflow-hidden font-[family-name:var(--font-lexend)]">
       {/* Modales */}
-      <InfoModal 
+      <InfoModal
         isOpen={isInfoModalOpen}
         onClose={handleCloseModals}
         onNext={handleGoToPayment}
       />
-      <PaymentModal 
+      <PaymentModal
         isOpen={isPaymentModalOpen}
         onClose={handleCloseModals}
         initPoint={initPoint}
@@ -63,13 +54,13 @@ export default function Ebook() {
 
       {/* Modal Lightbox */}
       {isModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
           onClick={() => setIsModalOpen(false)}
         >
           <div className="relative w-full max-w-4xl h-[80vh]">
             <Image
-              src={images[currentImage]}
+              src={ebookImage}
               alt={title}
               fill
               className="object-contain"
@@ -89,35 +80,26 @@ export default function Ebook() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Visual Ebook - Animación simple de escala */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex justify-center lg:justify-start"
           >
-            <div 
+            <div
               className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700 group-hover:scale-[1.03] -rotate-1 group-hover:rotate-0 cursor-zoom-in"
               onClick={() => setIsModalOpen(true)}
             >
               <div className="absolute inset-0 bg-sky-500/20 rounded-3xl blur-3xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10 bg-slate-900">
-                <div 
-                  className="flex h-full transition-transform duration-700 ease-in-out"
-                  style={{ transform: `translateX(-${currentImage * 100}%)` }}
-                >
-                  {images.map((src) => (
-                    <div key={src} className="relative h-full w-full flex-shrink-0">
-                      <Image
-                        src={src}
-                        alt={title}
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
-                  ))}
-                </div>
+                <Image
+                  src={ebookImage}
+                  alt={title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="absolute -top-6 -right-6 bg-[#e80300] text-white px-6 py-3 rounded-full shadow-2xl rotate-12 font-black text-sm uppercase tracking-tighter border-4 border-[#0c2a4a] z-20">
                 ¡30% OFF! 🚀
@@ -126,12 +108,12 @@ export default function Ebook() {
           </motion.div>
 
           {/* Contenido Ebook - Animación de bloque único */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col space-y-8 lg:max-w-2xl"
+            className="flex flex-col space-y-8 lg:max-w-3xl"
           >
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -164,10 +146,10 @@ export default function Ebook() {
               <div className="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 relative z-10">
                   <div className="space-y-1">
-                    <p className="text-slate-400 text-[11px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
+                    <p className="text-slate-400 text-[12px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
                     <div className="flex items-baseline gap-3">
-                      <span className="text-slate-400 line-through text-2xl font-semibold">${oldPrice?.toLocaleString()}</span>
-                      <span className="text-5xl lg:text-6xl font-black text-[#0c2a4a]">${price.toLocaleString()}</span>
+
+                      <span className="text-5xl lg:text-5xl font-black text-[#0c2a4a]">${price.toLocaleString()}</span>
                     </div>
                   </div>
                   <motion.button
