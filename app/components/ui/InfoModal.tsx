@@ -12,14 +12,14 @@ export default function InfoModal({ isOpen, onClose, onNext }: InfoModalProps) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"
         onClick={onClose}
       />
-      
+
       {/* Modal Content */}
       <div className="relative bg-white w-full max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors z-10"
         >
@@ -36,7 +36,7 @@ export default function InfoModal({ isOpen, onClose, onNext }: InfoModalProps) {
           <div className="text-center space-y-4 mb-8">
             <h3 className="text-2xl font-black text-[#0c2a4a]">Información Importante</h3>
             <p className="text-slate-600 font-medium leading-relaxed">
-              Al pagar con <span className="text-[#009EE3] font-bold">Mercado Pago</span>, se envía el Ebook en formato PDF al <span className="font-bold">email asociado</span> a tu cuenta de Mercado Pago.
+              Al pagar con <span className="text-[#009EE3] font-bold">Mercado Pago</span> o <span className="text-[#7700c1] font-bold">Gumroad</span>, se envía el Ebook en formato PDF al <span className="font-bold">email asociado</span> a tu cuenta de Mercado Pago.
             </p>
           </div>
 

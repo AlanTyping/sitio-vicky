@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from "next/link";
+
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -52,6 +54,17 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
 
           <div className="space-y-4">
             {/* Mercado Pago Button - Instant and Clean */}
+            <Link
+              href={"https://vaphalo.gumroad.com/l/ordenar-el-aula"}
+              className="w-full bg-[#7700c1] hover:bg-[#640c9a] text-white font-black py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+            >
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="brightness-0 invert">
+                <path d="M22.5 4.5H9.5C6.73858 4.5 4.5 6.73858 4.5 9.5V22.5C4.5 25.2614 6.73858 27.5 9.5 27.5H22.5C25.2614 27.5 27.5 25.2614 27.5 22.5V9.5C27.5 6.73858 25.2614 4.5 22.5 4.5Z" fill="white" />
+                <path d="M12.5 10.5V21.5M19.5 10.5V21.5M12.5 10.5H19.5" stroke="#000D13" strokeWidth="2.5" strokeLinecap="round" />
+              </svg>
+              Pagar con Gumroad
+            </Link>
+
             <button
               onClick={() => initPoint && (window.location.href = initPoint)}
               className="w-full bg-[#009EE3] hover:bg-[#0087c1] text-white font-black py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
@@ -94,8 +107,8 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
                 </svg>
                 Contactar por WhatsApp
               </a>
-              
-              <button 
+
+              <button
                 onClick={handleCopy}
                 className="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 transition-colors text-sm font-bold group"
               >
