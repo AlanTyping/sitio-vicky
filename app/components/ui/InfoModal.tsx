@@ -36,7 +36,7 @@ export default function InfoModal({ isOpen, onClose, onNext }: InfoModalProps) {
           <div className="text-center space-y-4 mb-8">
             <h3 className="text-2xl font-black text-[#0c2a4a]">Información Importante</h3>
             <p className="text-slate-600 font-medium leading-relaxed">
-              Al pagar con <span className="text-[#009EE3] font-bold">Mercado Pago</span> o <span className="text-[#7700c1] font-bold">Gumroad</span>, se envía el Ebook en formato PDF al <span className="font-bold">email asociado</span> a tu cuenta de Mercado Pago.
+              Al pagar con <span className="text-[#009EE3] font-bold">Mercado Pago</span> o <span className="text-[#7700c1] font-bold">Gumroad</span>, se envía el Ebook en formato PDF al <span className="font-bold">email asociado</span> a tu cuenta.
             </p>
           </div>
 
