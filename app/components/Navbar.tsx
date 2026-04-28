@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
@@ -18,18 +19,17 @@ const Navbar = () => {
     { href: "#biografia", label: "Sobre mí" },
     { href: "#guia-gratuita", label: "Guía gratuita", highlight: true },
     { href: "#ebook", label: "Ebook" },
-    { href: "#pago", label: "Servicios" },
     { href: "#contacto", label: "Contacto" },
   ];
 
   return (
-    <header className="absolute top-0 z-50 w-full bg-transparent">
+    <header className="absolute top-0 z-50 w-full bg-transparent py-4">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
 
         <div className="flex lg:flex-1">
-          <a href="#" className="text-2xl font-black text-white">
+          <Link href="/" className="text-2xl font-black text-white">
             Vicky Aphalo
-          </a>
+          </Link>
         </div>
 
         <div className="flex lg:hidden">
@@ -51,10 +51,10 @@ const Navbar = () => {
             <a 
               key={link.href} 
               href={link.href} 
-              className={`text-white font-bold transition-all text-sm tracking-wide ${
+              className={`font-bold transition-all text-sm tracking-wide ${
                 link.highlight 
                   ? "bg-amber-500 hover:bg-amber-400 px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/20 text-slate-900" 
-                  : "hover:text-sky-300"
+                  : "text-white hover:text-sky-300"
               }`}
             >
               {link.label}
@@ -85,9 +85,7 @@ const Navbar = () => {
                     ? "text-amber-400" 
                     : "text-white hover:text-sky-300"
                 }`}
-                onClick={(e) => {
-                  setIsOpen(false);
-                }}
+                onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </a>

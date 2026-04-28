@@ -101,9 +101,6 @@ export default function Ebook() {
                   priority
                 />
               </div>
-              <div className="absolute -top-6 -right-6 bg-[#e80300] text-white px-6 py-3 rounded-full shadow-2xl rotate-12 font-black text-sm uppercase tracking-tighter border-4 border-[#0c2a4a] z-20">
-                ¡30% OFF! 🚀
-              </div>
             </div>
           </motion.div>
 

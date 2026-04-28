@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   description: "Espacio de sanación y fortalecimiento diseñado exclusivamente para docentes. Supera el estrés laboral, recupera tu bienestar emocional y redescubre tu propósito en la enseñanza.",
   keywords: ["acompañamiento emocional", "docentes", "bienestar educadores", "estrés laboral docente", "Vicky Aphalo", "taller para maestros"],
   authors: [{ name: "Vicky Aphalo" }],
+  icons: {
+    icon: "/images/vicky-square.jpeg",
+    apple: "/images/vicky-square.jpeg",
+  },
   openGraph: {
     title: "Vicky Aphalo | Bienestar para Educadores",
     description: "Sanar, fortalecerse y reencontrar el propósito en la enseñanza.",
