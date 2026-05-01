@@ -13,6 +13,7 @@ export default function Hero() {
           loop
           playsInline
           preload="auto"
+          poster="/images/captura.jpg"
           className="w-full h-full object-cover"
         >
           <source src="/videos/clases-video.mp4" type="video/mp4" />

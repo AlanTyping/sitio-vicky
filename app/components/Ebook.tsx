@@ -9,9 +9,6 @@ import { usePayment } from '@/hooks/usePayment';
 import PaymentModal from './ui/PaymentModal';
 import InfoModal from './ui/InfoModal';
 
-// Inicializamos Mercado Pago con la clave pública
-initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY || '');
-
 export default function Ebook() {
   const { preferenceId, initPoint, isLoading, startCheckout, resetPayment } = usePayment();
   const { title, price, oldPrice, currency, features } = PRODUCTS.EBOOK;
@@ -20,6 +17,11 @@ export default function Ebook() {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const ebookImage = '/images/ebook.png';
+
+  useEffect(() => {
+    // Inicializamos Mercado Pago solo en el cliente y una sola vez
+    initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY || '');
+  }, []);
 
   const handleOpenInfo = () => {
     setIsInfoModalOpen(true);

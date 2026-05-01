@@ -21,12 +21,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vicky Aphalo | Acompañamiento Emocional para Educadores",
+  title: "Vicky Aphalo | Regulación Emocional para Educadores",
   description: "Espacio de sanación y fortalecimiento diseñado exclusivamente para docentes. Supera el estrés laboral, recupera tu bienestar emocional y redescubre tu propósito en la enseñanza.",
-  keywords: ["acompañamiento emocional", "docentes", "bienestar educadores", "estrés laboral docente", "Vicky Aphalo", "taller para maestros"],
+  keywords: ["regulación emocional", "docentes", "bienestar educadores", "estrés laboral docente", "Vicky Aphalo", "taller para maestros"],
   authors: [{ name: "Vicky Aphalo" }],
   icons: {
-    icon: "/images/vicky-square.jpeg",
+    icon: "/images/vicky-square.ico",
     apple: "/images/vicky-square.jpeg",
   },
   openGraph: {
@@ -64,6 +64,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <link
+          rel="preload"
+          href="/videos/clases-video.mp4"
+          as="video"
+          type="video/mp4"
+        />
+      </head>
       <body className={`${lexend.variable} font-sans min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900`}>
         {children}
       </body>
