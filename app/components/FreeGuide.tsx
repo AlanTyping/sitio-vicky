@@ -16,7 +16,13 @@ export default function FreeGuide() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Contenido */}
-          <div className="flex flex-col items-center lg:items-start space-y-8 lg:max-w-2xl order-2 lg:order-1 text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center lg:items-start space-y-8 lg:max-w-2xl order-2 lg:order-1 text-center lg:text-left"
+          >
             <div className="space-y-4">
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <span className="bg-amber-100 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
@@ -86,10 +92,26 @@ export default function FreeGuide() {
                 PDF gratuito • Descarga instantánea
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Visual: Mockup con Imagen Real - ESTÁTICO como pediste */}
-          <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+          {/* Visual: Mockup con Imagen Real - Animación de flotación */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            animate={{ 
+              y: [0, -15, 0],
+            }}
+            transition={{ 
+              duration: 0.8,
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
+          >
             <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700">
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-slate-900/30 blur-3xl rounded-full" />
 
@@ -110,7 +132,7 @@ export default function FreeGuide() {
                 ¡GRATIS! ✨
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

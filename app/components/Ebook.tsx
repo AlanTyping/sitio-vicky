@@ -81,12 +81,22 @@ export default function Ebook() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
-          {/* Visual Ebook - Animación simple de escala */}
+          {/* Visual Ebook - Animación de flotación */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            animate={{ 
+              y: [0, 15, 0],
+            }}
+            transition={{ 
+              duration: 0.8,
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
             className="flex justify-center lg:justify-start"
           >
             <div

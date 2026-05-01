@@ -12,8 +12,14 @@ export default function Biography() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
 
-          {/* Lado de la Imagen */}
-          <div className="w-full lg:w-[360px] shrink-0 flex justify-center lg:justify-start">
+          {/* Lado de la Imagen - Animación de entrada */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-[360px] shrink-0 flex justify-center lg:justify-start"
+          >
             <div className="relative aspect-[3/4] w-full max-w-[260px] sm:max-w-[300px] lg:max-w-none overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-slate-100">
               <Image
                 src="/images/vicky.jpg"
@@ -24,10 +30,16 @@ export default function Biography() {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Lado del Texto */}
-          <div className="flex flex-col justify-center flex-1">
+          {/* Lado del Texto - Animación de entrada */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col justify-center flex-1"
+          >
             <div className="max-w-2xl">
               <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-5 block">
                 Mi Propósito
@@ -53,7 +65,7 @@ export default function Biography() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* New Quote Container - Con animación como pediste */}

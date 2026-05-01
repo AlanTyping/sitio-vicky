@@ -51,11 +51,31 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Info Containers Row - ESTÁTICOS para evitar parpadeos y conflicto con CSS transitions */}
-        <div className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Info Containers Row - Con animaciones escalonadas */}
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.6
+              }
+            }
+          }}
+          className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+        >
 
           {/* Card 1: ¿Qué resuelve? */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300"
+          >
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" /><path d="M8 7h6" /><path d="M8 11h8" /><path d="M8 15h6" /></svg>
             </div>
@@ -68,10 +88,16 @@ export default function Hero() {
             <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Te ayudo a dejar de sostener el aula desde el cansancio, el grito o la improvisación, dándote herramientas concretas para intervenir con sentido y claridad.
             </p>
-          </div>
+          </motion.div>
 
           {/* Card 2: Mi propuesta */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-amber-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-amber-500 relative overflow-hidden group hover:bg-white transition-all duration-300"
+          >
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.7 1.5-1.7 1.5-3 0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.3.5 2.3 1.5 3 .8.8 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>
             </div>
@@ -84,10 +110,16 @@ export default function Hero() {
             <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Una mirada práctica y consciente para transformar el vínculo en el aula, con dinámicas, estrategias didácticas y pausas activas que podés aplicar desde el primer día.
             </p>
-          </div>
+          </motion.div>
 
           {/* Card 3: ¿Para quién es? */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-blue-400 relative overflow-hidden group hover:bg-white transition-all duration-300">
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-blue-400 relative overflow-hidden group hover:bg-white transition-all duration-300"
+          >
             <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
               <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
             </div>
@@ -100,8 +132,8 @@ export default function Hero() {
             <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
               Para profesionales de la educación que quieren pararse distinto: con más presencia, menos desgaste y herramientas concretas para acompañar a sus alumnos sin desbordarse.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Floating White Arrow */}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -52,7 +53,13 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Lado Izquierdo: Info & Instagram */}
-          <div className="space-y-10">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-10"
+          >
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
                 Sigamos en <br />
@@ -84,10 +91,16 @@ export default function Contact() {
                 </div>
               </div>
             </a>
-          </div>
+          </motion.div>
 
           {/* Lado Derecho: Formulario */}
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
             <div className="absolute -inset-4 bg-slate-50 rounded-[3rem] -rotate-2 pointer-events-none" />
 
             <div className="relative bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.04)] border border-slate-100">
@@ -98,7 +111,7 @@ export default function Contact() {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">¡Mensaje enviado!</h3>
                   <p className="text-slate-600">Gracias por contactarme. Te responderé lo antes posible.</p>
-                  <button 
+                  <button
                     onClick={() => setStatus('idle')}
                     className="text-sky-600 font-bold hover:underline mt-4"
                   >
@@ -150,7 +163,7 @@ export default function Contact() {
                     <p className="text-red-500 text-sm font-bold ml-1">{errorMessage}</p>
                   )}
 
-                  <button 
+                  <button
                     type="submit"
                     disabled={status === 'loading'}
                     className="w-full bg-sky-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl shadow-sky-200 hover:bg-sky-700 active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -161,10 +174,10 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
-    </section>
+    </section >
   );
 }
