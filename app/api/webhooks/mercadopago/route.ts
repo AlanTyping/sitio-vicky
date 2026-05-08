@@ -115,15 +115,20 @@ async function sendConfirmationEmail(params: {
 }
 
 export async function POST(request: Request) {
+  console.log('🔔 Webhook de Mercado Pago recibido');
   try {
     const url = new URL(request.url);
     const rawBody = await request.text();
+    
+    console.log('📦 Body del webhook:', rawBody);
+    console.log('🔗 URL params:', url.searchParams.toString());
 
     let payload: any = {};
     if (rawBody) {
       try {
         payload = JSON.parse(rawBody);
-      } catch {
+      } catch (e) {
+        console.error('❌ Error parseando JSON del webhook:', e);
         payload = {};
       }
     }
