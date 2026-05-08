@@ -118,7 +118,7 @@ export default function FreeGuide() {
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-2xl ring-1 ring-slate-200 bg-white p-4">
                 <div className="relative h-full w-full rounded-xl overflow-hidden bg-slate-50">
                   <Image
-                    src="/images/botiquin-docente.png"
+                    src="/images/botiquin-docente.webp"
                     alt="Botiquín Docente"
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-105"

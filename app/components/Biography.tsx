@@ -22,7 +22,7 @@ export default function Biography() {
           >
             <div className="relative aspect-[3/4] w-full max-w-[260px] sm:max-w-[300px] lg:max-w-none overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-slate-100">
               <Image
-                src="/images/vicky.jpg"
+                src="/images/vicky.webp"
                 alt="Vicky Aphalo - Habitar el Aula"
                 fill
                 className="object-cover"

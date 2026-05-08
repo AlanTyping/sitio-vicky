@@ -16,7 +16,7 @@ export default function Ebook() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const ebookImage = '/images/ebook.png';
+  const ebookImage = '/images/ebook.webp';
 
   useEffect(() => {
     // Inicializamos Mercado Pago solo en el cliente y una sola vez

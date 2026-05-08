@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Vicky Aphalo",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/vicky-square.jpg",
         width: 1200,
         height: 630,
         alt: "Vicky Aphalo - Bienestar Docente",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vicky Aphalo | Bienestar para Educadores",
     description: "Acompañamiento emocional diseñado exclusivamente para educadores.",
-    images: ["/og-image.jpg"],
+    images: ["/images/vicky-square.jpg"],
   },
 };
 
