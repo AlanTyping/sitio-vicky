@@ -28,7 +28,7 @@ function getResendClient() {
 function getFromEmail() {
   return (
     process.env.RESEND_FROM_EMAIL ||
-    'Vicky Aphalo <onboarding@resend.dev>'
+    'Vicky Aphalo <contacto@vickyaphalo.site>'
   );
 }
 
@@ -98,6 +98,9 @@ async function sendConfirmationEmail(params: {
   const baseUrl = getBaseUrl();
   const downloadUrl = `${baseUrl}/api/download/${encodeURIComponent(params.paymentId)}`;
   const emailContent = buildEmailContent(params.productKey, params.paymentId, downloadUrl);
+
+  console.log("EMAIL: ");
+  console.log(getFromEmail());
 
   const { error } = await resend.emails.send({
     from: getFromEmail(),
