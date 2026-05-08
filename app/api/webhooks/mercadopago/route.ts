@@ -7,6 +7,8 @@ import { db } from '@/lib/firebase';
 
 export const runtime = 'nodejs';
 
+console.log("Ejecutando backend");
+
 function getBaseUrl() {
   return (
     process.env.SITE_URL ||
@@ -115,13 +117,16 @@ async function sendConfirmationEmail(params: {
 }
 
 export async function POST(request: Request) {
-  console.log('🔔 Webhook de Mercado Pago recibido');
+  console.log('--- WEBHOOK START ---');
+  console.log('Method:', request.method);
+  console.log('Headers:', JSON.stringify(Object.fromEntries(request.headers.entries())));
+
   try {
     const url = new URL(request.url);
+    console.log('URL:', url.toString());
+
     const rawBody = await request.text();
-    
-    console.log('📦 Body del webhook:', rawBody);
-    console.log('🔗 URL params:', url.searchParams.toString());
+    console.log('Raw Body:', rawBody);
 
     let payload: any = {};
     if (rawBody) {
