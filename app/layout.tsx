@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   keywords: ["regulación emocional", "docentes", "bienestar educadores", "estrés laboral docente", "Vicky Aphalo", "taller para maestros"],
   authors: [{ name: "Vicky Aphalo" }],
   icons: {
-    icon: "/images/vicky-square.ico",
-    apple: "/images/vicky-square.jpeg",
+    icon: "/images/vicky-square.jpg",
+    apple: "/images/vicky-square.jpg",
   },
   openGraph: {
     title: "Vicky Aphalo | Bienestar para Educadores",
