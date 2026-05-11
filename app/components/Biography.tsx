@@ -5,12 +5,22 @@ import { motion } from 'framer-motion';
 
 export default function Biography() {
   return (
-    <section id="biografia" className="relative bg-white pt-16 lg:pt-24 pb-12 lg:pb-16 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section id="biografia" className="relative bg-white pt-24 lg:pt-24 pb-12 lg:pb-16 overflow-hidden font-[family-name:var(--font-lexend)]">
       {/* Elemento decorativo sutil */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 opacity-50 pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+        {/* Título móvil (arriba de la imagen) */}
+        <div className="lg:hidden mb-10">
+          <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
+            Mi Propósito
+          </span>
+          <h2 className="text-3xl lg:font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+            Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
+          </h2>
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
           {/* Lado de la Imagen - Animación de entrada */}
           <motion.div 
@@ -41,27 +51,28 @@ export default function Biography() {
             className="flex flex-col justify-center flex-1"
           >
             <div className="max-w-2xl">
-              <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-5 block">
-                Mi Propósito
-              </span>
+              {/* Título Desktop (se oculta en móvil) */}
+              <div className="hidden lg:block">
+                <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-5 block">
+                  Mi Propósito
+                </span>
 
-              <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
-                Todo lo que comparto nace de <span className="text-sky-700 italic">mi experiencia</span> en el aula.
-              </h2>
+                <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+                  Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
+                </h2>
+              </div>
 
               <div className="space-y-6 text-lg lg:text-xl text-slate-600 leading-relaxed">
                 <p>
-                  Durante años me encontré con grupos que no respondían y mucho desgaste.
-                  Hasta que entendí que <span className="text-slate-900 font-semibold border-b-2 border-sky-100">no era solo qué hacía, sino cómo intervenía</span> en esos momentos.
+                  Durante años me encontré con grupos que no respondían y con mucho desgaste en el aula. Hasta que entendí que <span className="text-slate-900 font-semibold border-b-2 border-sky-100">no se trataba solo de qué hacía, sino de cómo intervenía</span> en esos momentos.
                 </p>
 
                 <p>
-                  A partir de ahí empecé a trabajar con estrategias concretas para intervenir mejor.
-                  Una de ellas es el <span className="text-sky-600 font-bold">Método 3C</span>, diseñado para acompañar conflictos sin que todo dependa de tu energía física y emocional.
+                  A partir de ahí, comencé a trabajar con estrategias lúdicas, corporales y vinculares para intervenir sin gritar y habitar el aula de una manera diferente.
                 </p>
 
                 <p>
-                  Hoy acompaño a docentes que quieren enseñar mejor sin gritar ni desgastarse. Lo que propongo va más allá de una técnica: es una forma de pararse frente al aula que integra autoconocimiento, vínculo y estrategias.
+                  Hoy acompaño a docentes que buscan hacer lo mismo. Mi propuesta combina mirada pedagógica, autoconocimiento y herramientas concretas para sostener el aula con más claridad, presencia y sentido, construyendo formas de enseñar más conscientes y humanas.
                 </p>
               </div>
             </div>
@@ -84,9 +95,9 @@ export default function Biography() {
             </svg>
           </div>
           <div className="max-w-4xl mx-auto text-center px-6">
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-tight italic">
-              &quot;Porque no se trata de hacer más. <br className="sm:hidden" />
-              <span className="text-sky-600"> Se trata de intervenir mejor.</span>&quot;
+            <p className="text-2xl sm:text-3xl lg:text-4xl lg:font-black text-slate-900 leading-tight italic">
+              &quot;Porque no se trata de hacer más, <br className="sm:hidden" />
+              <span className="text-sky-600"> se trata de intervenir mejor</span>&quot;
             </p>
           </div>
         </motion.div>

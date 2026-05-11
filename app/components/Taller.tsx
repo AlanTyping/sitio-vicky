@@ -35,7 +35,7 @@ export default function Taller() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-sky-600 uppercase tracking-wide">Taller Exclusivo</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl">
+          <p className="mt-2 text-4xl lg:font-bold tracking-tight text-slate-900 sm:text-6xl">
             Transforma tu Aula sin Agotarte
           </p>
           <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -46,7 +46,7 @@ export default function Taller() {
         <div className="mt-16 grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-12">
           {/* Dolores del Maestro */}
           <div className="bg-red-50 p-8 rounded-2xl ring-1 ring-red-200 shadow-sm">
-            <h3 className="text-xl font-bold text-red-900 mb-6 flex items-center">
+            <h3 className="text-xl lg:font-bold text-red-900 mb-6 flex items-center">
               <span className="mr-2">⚠️</span> ¿Te sientes así?
             </h3>
             <ul className="space-y-4 text-red-800">
@@ -67,7 +67,7 @@ export default function Taller() {
 
           {/* Métodos de Solución */}
           <div className="bg-sky-50 p-8 rounded-2xl ring-1 ring-sky-200 shadow-sm">
-            <h3 className="text-xl font-bold text-sky-900 mb-6 flex items-center">
+            <h3 className="text-xl lg:font-bold text-sky-900 mb-6 flex items-center">
               <span className="mr-2">✨</span> Qué vas a lograr
             </h3>
             <ul className="space-y-4 text-sky-800">
@@ -108,7 +108,7 @@ export default function Taller() {
               {oldPrice && (
                 <span className="text-slate-400 line-through text-2xl mr-4">${oldPrice.toLocaleString()}</span>
               )}
-              <span className="text-5xl font-extrabold text-white">${price.toLocaleString()}</span>
+              <span className="text-5xl lg:font-extrabold text-white">${price.toLocaleString()}</span>
               <span className="text-sm text-slate-400 ml-2">{currency}</span>
             </div>
 

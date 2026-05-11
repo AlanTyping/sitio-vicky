@@ -61,7 +61,7 @@ export default function Contact() {
             className="space-y-10"
           >
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+              <h2 className="text-4xl lg:text-6xl lg:font-extrabold text-slate-900 tracking-tight leading-[1.1]">
                 Sigamos en <br />
                 <span className="text-sky-600">contacto.</span>
               </h2>
@@ -84,7 +84,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">Comunidad</p>
-                  <p className="text-2xl font-black text-slate-900">@vicky.aphalo</p>
+                  <p className="text-2xl lg:font-black text-slate-900">@vicky.aphalo</p>
                 </div>
                 <div className="ml-auto hidden sm:block">
                   <span className="bg-slate-50 text-slate-600 px-4 py-2 rounded-full text-sm font-bold group-hover:bg-slate-900 group-hover:text-white transition-colors">Seguir</span>
@@ -109,7 +109,7 @@ export default function Contact() {
                   <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">¡Mensaje enviado!</h3>
+                  <h3 className="text-2xl lg:font-bold text-slate-900">¡Mensaje enviado!</h3>
                   <p className="text-slate-600">Gracias por contactarme. Te responderé lo antes posible.</p>
                   <button
                     onClick={() => setStatus('idle')}

@@ -48,7 +48,7 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
 
         <div className="p-8 lg:p-10">
           <div className="text-center space-y-4 mb-8">
-            <h3 className="text-2xl font-black text-[#0c2a4a]">Haz tu compra</h3>
+            <h3 className="text-2xl lg:font-black text-[#0c2a4a]">Haz tu compra</h3>
             <p className="text-slate-500 font-medium">Elegí el método que prefieras para obtener tu Ebook</p>
           </div>
 
@@ -73,7 +73,7 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
                 <div className="w-full border-t border-slate-200"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white px-2 text-slate-400 font-bold">O también</span>
+                <span className="bg-white px-2 text-slate-400 lg:font-bold">O también</span>
               </div>
             </div>
 

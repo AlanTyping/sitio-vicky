@@ -12,7 +12,7 @@ export default function Payment() {
     <section id="pago" className="bg-slate-50 py-24 sm:py-32 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl lg:font-bold tracking-tight text-slate-900 sm:text-4xl">
             Inicia tu camino hoy
           </h2>
           <p className="mt-6 text-lg leading-8 text-slate-700">
@@ -22,7 +22,7 @@ export default function Payment() {
         
         <div className="mx-auto mt-16 max-w-lg rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-xl sm:p-10 lg:mx-0 lg:max-w-none lg:flex lg:items-center">
           <div className="flex-1 lg:pr-10">
-            <h3 className="text-2xl font-bold tracking-tight text-slate-900">{title}</h3>
+            <h3 className="text-2xl lg:font-bold tracking-tight text-slate-900">{title}</h3>
             <p className="mt-6 text-base leading-7 text-slate-600">
               Un espacio uno a uno diseñado para trabajar tus necesidades específicas y encontrar herramientas personalizadas para tu bienestar.
             </p>

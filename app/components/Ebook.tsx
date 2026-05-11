@@ -79,7 +79,21 @@ export default function Ebook() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
+        {/* Título y Badges para Móvil (arriba de la imagen) */}
+        <div className="lg:hidden mb-12 text-center">
+          <div className="flex flex-col items-center gap-3 mb-6">
+            <span className="bg-sky-500/20 text-sky-300 border border-sky-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+              Recurso Imprescindible
+            </span>
+            <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
+          </div>
+          <h2 className="text-4xl lg:font-extrabold tracking-tight text-white leading-[1.05]">
+            Domina el caos <br />
+            <span className="text-sky-400 italic">sin perder la calma</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
 
           {/* Visual Ebook - Animación de flotación */}
           <motion.div
@@ -122,19 +136,21 @@ export default function Ebook() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col space-y-8 lg:max-w-3xl"
+            className="flex flex-col space-y-6 lg:space-y-8 lg:max-w-3xl"
           >
-            <div className="space-y-4">
+            {/* Contenido Desktop (se oculta en móvil) */}
+            <div className="hidden lg:block space-y-4">
               <div className="flex items-center gap-3">
                 <span className="bg-sky-500/20 text-sky-300 border border-sky-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
                   Recurso Imprescindible
                 </span>
                 <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl lg:text-6xl lg:font-extrabold tracking-tight text-white leading-[1.05]">
                 Domina el caos <br />
-                <span className="text-sky-400 italic">sin perder la calma.</span>
+                <span className="text-sky-400 italic">sin perder la calma</span>
               </h2>
+
               <p className="text-lg lg:text-xl leading-relaxed text-sky-100/70 font-medium max-w-xl">
                 ¿Sentís que a veces el aula se te escapa de las manos? Esta guía práctica está diseñada para darte respuestas concretas en segundos.
               </p>
@@ -151,27 +167,37 @@ export default function Ebook() {
               ))}
             </ul>
 
-            <div className="relative pt-4">
-              <div className="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-[0_40px_80px_-15px_rgba(0,0,0,0.5)] relative overflow-hidden">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 relative z-10">
-                  <div className="space-y-1">
-                    <p className="text-slate-400 text-[12px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
-                    <div className="flex items-baseline gap-3">
-
-                      <span className="text-5xl lg:text-5xl font-black text-[#0c2a4a]">${price.toLocaleString()}</span>
+            <div className="relative pt-6">
+              <div className="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                <div className="flex flex-col items-center text-center space-y-6 relative z-10">
+                  
+                  <div className="space-y-2">
+                    <p className="text-slate-400 text-[10px] lg:text-xs font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
+                    
+                    <div className="flex flex-col items-center">
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-5xl lg:text-6xl font-black text-[#0c2a4a] tracking-tight">
+                          ${price.toLocaleString()}
+                        </span>
+                        <span className="text-lg lg:text-xl font-bold text-slate-400">ARG</span>
+                      </div>
+                      <p className="text-sm lg:text-base font-bold text-sky-600 uppercase tracking-widest mt-1">
+                        20 USD LATAM
+                      </p>
                     </div>
                   </div>
+
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleOpenInfo}
-                    className="bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-lg shadow-sky-600/20 transition-all text-lg flex items-center justify-center gap-3 group"
+                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg lg:text-xl flex items-center justify-center gap-3 group"
                   >
                     ¡Quiero el Ebook ahora!
                   </motion.button>
                 </div>
               </div>
-              <p className="mt-6 text-center text-xs text-sky-100/30 font-semibold tracking-wide uppercase">
+              <p className="mt-6 text-center text-[10px] lg:text-xs text-sky-100/30 font-bold uppercase tracking-widest">
                 Acceso inmediato • Formato Digital • Soporte incluido
               </p>
             </div>

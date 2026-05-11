@@ -12,7 +12,7 @@ export default function FreeGuide() {
         <div className="absolute bottom-[10%] -right-24 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 mt-12 sm:mt-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Contenido */}
@@ -31,14 +31,16 @@ export default function FreeGuide() {
                 <span className="text-slate-400 text-xs font-bold tracking-wide uppercase italic">Exclusivo para docentes</span>
               </div>
 
-              <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                Botiquín Docente: <br />
-                <span className="text-sky-600">Primeros auxilios para el aula.</span>
-              </h2>
+              <div className="hidden lg:block space-y-4">
+                <h2 className="text-4xl lg:text-5xl lg:font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                  Botiquín Docente: <br />
+                  <span className="text-sky-600">Primeros auxilios para el aula</span>
+                </h2>
 
-              <p className="text-lg lg:text-xl leading-relaxed text-slate-600 font-medium max-w-xl">
-                Una guía práctica con herramientas inmediatas para gestionar situaciones complejas y cuidar tu bienestar emocional mientras enseñas.
-              </p>
+                <p className="text-lg lg:text-xl leading-relaxed text-slate-600 font-medium max-w-xl">
+                  Una guía práctica con herramientas inmediatas para gestionar situaciones complejas y cuidar tu bienestar emocional mientras enseñas.
+                </p>
+              </div>
             </div>
 
             <ul className="grid grid-cols-1 gap-4 text-left">

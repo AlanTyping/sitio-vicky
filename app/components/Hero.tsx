@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section className="relative min-h-[50vh] md:min-h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
       {/* Background Video Layer (Full Screen) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -25,7 +25,7 @@ export default function Hero() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-28 lg:pt-32 px-6 pb-20 lg:px-12">
+      <div className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-28 lg:pt-32 px-6 pb-10 md:pb-20 lg:px-12">
 
         {/* Title & Subtitle */}
         <div className="text-center mb-12 lg:mb-20">
@@ -65,7 +65,7 @@ export default function Hero() {
               }
             }
           }}
-          className="mx-auto max-w-7xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="mx-auto max-w-7xl w-full hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
         >
 
           {/* Card 1: ¿Qué resuelve? */}
