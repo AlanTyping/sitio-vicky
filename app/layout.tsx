@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lexend } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const lexend = Lexend({
@@ -74,6 +75,7 @@ export default function RootLayout({
       </head>
       <body className={`${lexend.variable} font-sans min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
