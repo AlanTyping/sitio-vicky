@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     const resend = getResendClient();
     const { data, error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: ['alan.a.n.r.ar@gmail.com'], // El email donde Vicky quiere recibir los mensajes
+      to: ['v.aphalo@gmail.com'], // El email donde Vicky quiere recibir los mensajes
       subject: `Nuevo mensaje de contacto de ${name}`,
       replyTo: email,
       html: `
