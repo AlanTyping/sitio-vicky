@@ -56,14 +56,14 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
             {/* Mercado Pago Button - Instant and Clean */}
             <Link
               href={"https://vaphalo.gumroad.com/l/ordenar-el-aula"}
-              className="w-full bg-[#7700c1] hover:bg-[#640c9a] text-white font-black py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+              className="w-full bg-[#7700c1] hover:bg-[#640c9a] text-white font-medium py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
             >
               Pagar con Gumroad
             </Link>
 
             <button
               onClick={() => initPoint && (window.location.href = initPoint)}
-              className="w-full bg-[#009EE3] hover:bg-[#0087c1] text-white font-black py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+              className="w-full bg-[#009EE3] hover:bg-[#0087c1] text-white font-medium py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
             >
               {isLoading && !initPoint ? 'Preparando pago...' : 'Pagar con Mercado Pago'}
             </button>
@@ -73,7 +73,7 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
                 <div className="w-full border-t border-slate-200"></div>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white px-2 text-slate-400 lg:font-bold">O también</span>
+                <span className="bg-white px-2 text-slate-400 lg:font-medium">O también</span>
               </div>
             </div>
 
@@ -83,7 +83,7 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
                 href={`https://wa.me/${cleanNumber}?text=Hola!%20Acabo%20de%20ver%20tu%20Ebook%20y%20me%20gustaría%20obtenerlo.%20¿Cómo%20podemos%20hacer?`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black py-4 px-6 rounded-2xl shadow-lg shadow-green-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg group"
+                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-medium py-4 px-6 rounded-2xl shadow-lg shadow-green-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +102,7 @@ export default function PaymentModal({ isOpen, onClose, initPoint, isLoading }: 
 
               <button
                 onClick={handleCopy}
-                className="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 transition-colors text-sm font-bold group"
+                className="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-slate-600 transition-colors text-sm font-medium group"
               >
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">📋</span>
                 {copied ? '¡Copiado!' : `Copiar número: ${phoneNumber}`}

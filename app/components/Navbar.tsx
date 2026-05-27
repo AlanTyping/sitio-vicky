@@ -23,11 +23,11 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="absolute top-0 z-50 w-full bg-transparent py-4">
+    <header className="absolute top-0 z-50 w-full bg-transparent py-6 lg:py-8">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
 
         <div className="flex lg:flex-1">
-          <Link href="/" className="text-2xl font-black text-white">
+          <Link href="/" className="text-3xl lg:text-4xl font-black text-white tracking-tight">
             Vicky Aphalo
           </Link>
         </div>
@@ -35,24 +35,24 @@ const Navbar = () => {
         <div className="flex lg:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
             aria-label="Menu"
           >
             {isOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             )}
           </button>
         </div>
 
-        <div className="hidden lg:flex gap-x-10 items-center">
+        <div className="hidden lg:flex gap-x-12 items-center">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`font-bold transition-all text-sm tracking-wide ${link.highlight
-                ? "bg-amber-500 text-white hover:bg-amber-400 px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/20 "
+              className={`font-bold transition-all text-base tracking-wide ${link.highlight
+                ? "bg-amber-500 text-white hover:bg-amber-400 px-7 py-3 rounded-full shadow-lg shadow-amber-500/20 "
                 : "text-white hover:text-sky-300"
                 }`}
             >

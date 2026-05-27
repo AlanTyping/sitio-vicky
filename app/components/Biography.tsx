@@ -5,25 +5,22 @@ import { motion } from 'framer-motion';
 
 export default function Biography() {
   return (
-    <section id="biografia" className="relative bg-white pt-24 lg:pt-24 pb-12 lg:pb-16 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section id="biografia" className="relative bg-white pt-12 lg:pt-24 pb-12 lg:pb-16 overflow-hidden font-[family-name:var(--font-lexend)]">
       {/* Elemento decorativo sutil */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 opacity-50 pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Título móvil (arriba de la imagen) */}
         <div className="lg:hidden mb-10">
-          <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
-            Mi Propósito
-          </span>
-          <h2 className="text-3xl lg:font-bold text-slate-900 leading-[1.1] tracking-tight">
-            Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
+          <h2 className="text-3xl font-light text-slate-900 leading-[1.1] tracking-tight">
+            Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic font-bold">infancia y la pedagogía</span>
           </h2>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
           {/* Lado de la Imagen - Animación de entrada */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -43,7 +40,7 @@ export default function Biography() {
           </motion.div>
 
           {/* Lado del Texto - Animación de entrada */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -57,8 +54,8 @@ export default function Biography() {
                   Mi Propósito
                 </span>
 
-                <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-8 tracking-tight">
-                  Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
+                <h2 className="text-4xl lg:text-5xl font-light text-slate-900 leading-[1.1] mb-8 tracking-tight">
+                  Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic font-bold">infancia y la pedagogía</span>
                 </h2>
               </div>
 

@@ -35,8 +35,8 @@ export default function Taller() {
       <div className="mx-auto max-w-4xl">
         <div className="text-center">
           <h2 className="text-base font-semibold leading-7 text-sky-600 uppercase tracking-wide">Taller Exclusivo</h2>
-          <p className="mt-2 text-4xl lg:font-bold tracking-tight text-slate-900 sm:text-6xl">
-            Transforma tu Aula sin Agotarte
+          <p className="mt-2 text-4xl font-light tracking-tight text-slate-900 sm:text-6xl">
+            Transforma tu Aula <span className="text-sky-600 font-bold">sin Agotarte</span>
           </p>
           <p className="mt-6 text-lg leading-8 text-slate-600">
             Sabemos que el estrés docente es real. Este taller está diseñado para darte las herramientas que la formación tradicional olvidó.
@@ -120,7 +120,7 @@ export default function Taller() {
               <button
                 onClick={() => startCheckout('TALLER')}
                 disabled={isLoading}
-                className="w-full sm:w-auto bg-sky-500 px-12 py-4 rounded-xl font-bold text-lg hover:bg-sky-600 transition-all disabled:opacity-50 shadow-xl shadow-sky-500/20 active:scale-95 flex items-center justify-center gap-3"
+                className="w-full sm:w-auto bg-sky-500 px-12 py-4 rounded-xl font-medium text-lg hover:bg-sky-600 transition-all disabled:opacity-50 shadow-xl shadow-sky-500/20 active:scale-95 flex items-center justify-center gap-3"
               >
                 {isLoading ? 'Preparando tu lugar...' : '¡Quiero mi lugar ahora!'}
               </button>

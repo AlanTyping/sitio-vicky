@@ -32,9 +32,9 @@ export default function FreeGuide() {
               </div>
 
               <div className="hidden lg:block space-y-4">
-                <h2 className="text-4xl lg:text-5xl lg:font-bold tracking-tight text-slate-900 leading-[1.1]">
+                <h2 className="text-4xl lg:text-5xl font-light tracking-tight text-slate-900 leading-[1.1]">
                   Botiquín Docente: <br />
-                  <span className="text-sky-600">Primeros auxilios para el aula</span>
+                  <span className="text-sky-600 font-bold">Primeros auxilios para el aula</span>
                 </h2>
 
                 <p className="text-lg lg:text-xl leading-relaxed text-slate-600 font-medium max-w-xl">
@@ -55,7 +55,7 @@ export default function FreeGuide() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 text-slate-700 font-semibold group cursor-default"
+                  className="flex items-center gap-4 text-slate-700 font-normal lg:font-semibold group cursor-default"
                 >
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-md group-hover:bg-amber-500 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -71,7 +71,7 @@ export default function FreeGuide() {
                 whileTap={{ scale: 0.98 }}
                 href="/pdf/botiquin-docente.pdf"
                 download
-                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg group"
+                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg group"
               >
                 Descargar Guía Gratis
                 <svg

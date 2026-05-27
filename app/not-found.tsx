@@ -13,7 +13,7 @@ export default function NotFound() {
         </div>
         <Link 
           href="/" 
-          className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-black py-4 px-8 rounded-2xl shadow-xl shadow-sky-200 transition-all text-lg group"
+          className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-medium py-4 px-8 rounded-2xl shadow-xl shadow-sky-200 transition-all text-lg group"
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 

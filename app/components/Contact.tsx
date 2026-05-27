@@ -61,9 +61,9 @@ export default function Contact() {
             className="space-y-10"
           >
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-6xl lg:font-bold text-slate-900 tracking-tight leading-[1.1]">
+              <h2 className="text-4xl lg:text-6xl font-light text-slate-900 tracking-tight leading-[1.1]">
                 Sigamos en <br />
-                <span className="text-sky-600">contacto.</span>
+                <span className="text-sky-600 font-bold">contacto.</span>
               </h2>
               <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-md font-medium ">
                 ¿Querés llevar estas estrategias a tu escuela?
@@ -166,7 +166,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-sky-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl shadow-sky-200 hover:bg-sky-700 active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-sky-600 text-white font-medium py-5 px-8 rounded-2xl shadow-xl shadow-sky-200 hover:bg-sky-700 active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3 mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {status === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>

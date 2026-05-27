@@ -87,9 +87,9 @@ export default function Ebook() {
             </span>
             <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
           </div>
-          <h2 className="text-4xl lg:font-bold tracking-tight text-white leading-[1.05]">
+          <h2 className="text-4xl font-light tracking-tight text-white leading-[1.05]">
             Domina el caos <br />
-            <span className="text-sky-400 italic">sin perder la calma</span>
+            <span className="text-sky-400 italic font-bold">sin perder la calma</span>
           </h2>
         </div>
 
@@ -99,10 +99,10 @@ export default function Ebook() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            animate={{ 
+            animate={{
               y: [0, 15, 0],
             }}
-            transition={{ 
+            transition={{
               duration: 0.8,
               y: {
                 duration: 4,
@@ -146,9 +146,9 @@ export default function Ebook() {
                 </span>
                 <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl lg:font-bold tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl lg:text-6xl font-light tracking-tight text-white leading-[1.05]">
                 Domina el caos <br />
-                <span className="text-sky-400 italic">sin perder la calma</span>
+                <span className="text-sky-400 italic font-bold">sin perder la calma</span>
               </h2>
 
               <p className="text-lg lg:text-xl leading-relaxed text-sky-100/70 font-medium max-w-xl">
@@ -156,9 +156,9 @@ export default function Ebook() {
               </p>
             </div>
 
-            <ul className="grid grid-cols-1 gap-4">
+            <ul className="grid grid-cols-1 gap-6 lg:gap-4 mt-5 lg:mt-0">
               {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-4 text-sky-50 font-bold group cursor-default">
+                <li key={feature} className="flex items-center gap-4 text-sky-50 text-base font-normal lg:font-bold group cursor-default">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-400 text-[#0c2a4a] flex items-center justify-center shadow-lg group-hover:bg-white transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </span>
@@ -167,21 +167,21 @@ export default function Ebook() {
               ))}
             </ul>
 
-            <div className="relative pt-6">
-              <div className="bg-white p-8 lg:p-10 rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] relative overflow-hidden">
-                <div className="flex flex-col items-center text-center space-y-6 relative z-10">
-                  
-                  <div className="space-y-2">
-                    <p className="text-slate-400 text-[10px] lg:text-xs font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
-                    
+            <div className="relative pt-4">
+              <div className="bg-white p-6 lg:p-7 rounded-[2rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.5)] relative overflow-hidden max-w-sm mx-auto lg:mx-0">
+                <div className="flex flex-col items-center text-center space-y-5 relative z-10">
+
+                  <div className="space-y-1">
+                    <p className="text-slate-400 text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em]">Inversión en tu bienestar</p>
+
                     <div className="flex flex-col items-center">
                       <div className="flex items-baseline gap-2">
-                        <span className="text-5xl lg:text-6xl font-black text-[#0c2a4a] tracking-tight">
+                        <span className="text-4xl lg:text-5xl font-black text-[#0c2a4a] tracking-tight">
                           ${price.toLocaleString()}
                         </span>
-                        <span className="text-lg lg:text-xl font-bold text-slate-400">ARG</span>
+                        <span className="text-base lg:text-lg font-bold text-slate-400">ARG</span>
                       </div>
-                      <p className="text-sm lg:text-base font-bold text-sky-600 uppercase tracking-widest mt-1">
+                      <p className="text-xs lg:text-sm font-bold text-sky-600 uppercase tracking-widest mt-0.5">
                         20 USD LATAM
                       </p>
                     </div>
@@ -191,13 +191,13 @@ export default function Ebook() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleOpenInfo}
-                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg lg:text-xl flex items-center justify-center gap-3 group"
+                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-sky-600/20 transition-all text-base lg:text-lg flex items-center justify-center gap-3 group"
                   >
                     ¡Quiero el Ebook ahora!
                   </motion.button>
                 </div>
               </div>
-              <p className="mt-6 text-center text-[10px] lg:text-xs text-sky-100/30 font-bold uppercase tracking-widest">
+              <p className="mt-4 text-center lg:text-left text-[9px] lg:text-[10px] text-sky-100/30 font-bold uppercase tracking-widest">
                 Acceso inmediato • Formato Digital • Soporte incluido
               </p>
             </div>

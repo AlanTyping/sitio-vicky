@@ -42,7 +42,7 @@ export default function InfoModal({ isOpen, onClose, onNext }: InfoModalProps) {
 
           <button
             onClick={onNext}
-            className="w-full bg-sky-600 hover:bg-sky-500 text-white font-black py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+            className="w-full bg-sky-600 hover:bg-sky-500 text-white font-medium py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
           >
             Siguiente
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
