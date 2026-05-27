@@ -33,7 +33,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-[42px] sm:text-[72px] lg:text-[96px] font-extrabold tracking-tight text-white leading-[0.9] drop-shadow-2xl"
+            className="text-[42px] sm:text-[72px] lg:text-[96px] font-bold tracking-tight text-white leading-[0.9] drop-shadow-2xl"
           >
             Habitar el aula
           </motion.h1>

@@ -15,7 +15,7 @@ export default function Biography() {
           <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-4 block">
             Mi Propósito
           </span>
-          <h2 className="text-3xl lg:font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+          <h2 className="text-3xl lg:font-bold text-slate-900 leading-[1.1] tracking-tight">
             Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
           </h2>
         </div>
@@ -57,7 +57,7 @@ export default function Biography() {
                   Mi Propósito
                 </span>
 
-                <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tight">
+                <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.1] mb-8 tracking-tight">
                   Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic">infancia y la pedagogía</span>
                 </h2>
               </div>
@@ -95,9 +95,9 @@ export default function Biography() {
             </svg>
           </div>
           <div className="max-w-4xl mx-auto text-center px-6">
-            <p className="text-2xl sm:text-3xl lg:text-4xl lg:font-black text-slate-900 leading-tight italic">
-              &quot;Porque no se trata de hacer más, <br className="sm:hidden" />
-              <span className="text-sky-600"> se trata de intervenir mejor</span>&quot;
+            <p className="text-2xl sm:text-3xl lg:text-4xl font-light text-slate-600 leading-tight italic">
+              Porque no se trata de hacer más, <br className="sm:hidden" />
+              <span className="text-sky-600/80"> se trata de intervenir mejor</span>
             </p>
           </div>
         </motion.div>

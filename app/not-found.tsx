@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="text-center space-y-6 max-w-md">
         <h1 className="text-9xl font-black text-sky-100 animate-pulse">404</h1>
         <div className="space-y-2">
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Página no encontrada</h2>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Página no encontrada</h2>
           <p className="text-slate-600 text-lg">
             Parece que te has perdido en el aula. No te preocupes, volvamos al camino principal.
           </p>

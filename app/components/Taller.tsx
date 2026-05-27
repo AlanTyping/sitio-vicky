@@ -108,7 +108,7 @@ export default function Taller() {
               {oldPrice && (
                 <span className="text-slate-400 line-through text-2xl mr-4">${oldPrice.toLocaleString()}</span>
               )}
-              <span className="text-5xl lg:font-extrabold text-white">${price.toLocaleString()}</span>
+              <span className="text-5xl lg:font-bold text-white">${price.toLocaleString()}</span>
               <span className="text-sm text-slate-400 ml-2">{currency}</span>
             </div>
 

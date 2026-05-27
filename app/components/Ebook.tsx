@@ -87,7 +87,7 @@ export default function Ebook() {
             </span>
             <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
           </div>
-          <h2 className="text-4xl lg:font-extrabold tracking-tight text-white leading-[1.05]">
+          <h2 className="text-4xl lg:font-bold tracking-tight text-white leading-[1.05]">
             Domina el caos <br />
             <span className="text-sky-400 italic">sin perder la calma</span>
           </h2>
@@ -146,7 +146,7 @@ export default function Ebook() {
                 </span>
                 <span className="text-sky-100/40 text-xs font-bold tracking-wide uppercase">Bestseller Docente</span>
               </div>
-              <h2 className="text-4xl lg:text-6xl lg:font-extrabold tracking-tight text-white leading-[1.05]">
+              <h2 className="text-4xl lg:text-6xl lg:font-bold tracking-tight text-white leading-[1.05]">
                 Domina el caos <br />
                 <span className="text-sky-400 italic">sin perder la calma</span>
               </h2>

@@ -32,7 +32,7 @@ export default function FreeGuide() {
               </div>
 
               <div className="hidden lg:block space-y-4">
-                <h2 className="text-4xl lg:text-5xl lg:font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                <h2 className="text-4xl lg:text-5xl lg:font-bold tracking-tight text-slate-900 leading-[1.1]">
                   Botiquín Docente: <br />
                   <span className="text-sky-600">Primeros auxilios para el aula</span>
                 </h2>

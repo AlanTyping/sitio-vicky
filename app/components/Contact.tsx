@@ -61,7 +61,7 @@ export default function Contact() {
             className="space-y-10"
           >
             <div className="space-y-6">
-              <h2 className="text-4xl lg:text-6xl lg:font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+              <h2 className="text-4xl lg:text-6xl lg:font-bold text-slate-900 tracking-tight leading-[1.1]">
                 Sigamos en <br />
                 <span className="text-sky-600">contacto.</span>
               </h2>
