@@ -33,8 +33,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:hidden">
-          <button 
-            onClick={toggleMenu} 
+          <button
+            onClick={toggleMenu}
             className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
             aria-label="Menu"
           >
@@ -48,14 +48,13 @@ const Navbar = () => {
 
         <div className="hidden lg:flex gap-x-10 items-center">
           {navLinks.map((link) => (
-            <a 
-              key={link.href} 
-              href={link.href} 
-              className={`font-bold transition-all text-sm tracking-wide ${
-                link.highlight 
-                  ? "bg-amber-500 hover:bg-amber-400 px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/20 text-slate-900" 
-                  : "text-white hover:text-sky-300"
-              }`}
+            <a
+              key={link.href}
+              href={link.href}
+              className={`font-bold transition-all text-sm tracking-wide ${link.highlight
+                ? "bg-amber-500 text-white hover:bg-amber-400 px-5 py-2.5 rounded-full shadow-lg shadow-amber-500/20 "
+                : "text-white hover:text-sky-300"
+                }`}
             >
               {link.label}
             </a>
@@ -65,26 +64,23 @@ const Navbar = () => {
 
       {/* Mobile Menu - Improved with blur and animations */}
       {mounted && (
-        <div 
-          className={`lg:hidden fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 ${
-            isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        <div
+          className={`lg:hidden fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            }`}
           onClick={() => setIsOpen(false)}
         >
-          <div 
-            className={`flex flex-col items-center justify-center h-full gap-8 transition-transform duration-300 ${
-              isOpen ? "scale-100" : "scale-95"
-            }`}
+          <div
+            className={`flex flex-col items-center justify-center h-full gap-8 transition-transform duration-300 ${isOpen ? "scale-100" : "scale-95"
+              }`}
           >
             {navLinks.map((link) => (
-              <a 
-                key={link.href} 
-                href={link.href} 
-                className={`text-2xl font-black transition-colors ${
-                  link.highlight 
-                    ? "text-amber-400" 
-                    : "text-white hover:text-sky-300"
-                }`}
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-2xl font-black transition-colors ${link.highlight
+                  ? "text-amber-400"
+                  : "text-white hover:text-sky-300"
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
