@@ -191,7 +191,7 @@ export default function Ebook() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleOpenInfo}
-                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-sky-600/20 transition-all text-base lg:text-lg flex items-center justify-center gap-3 group"
+                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg lg:text-lg lg:py-4 lg:px-8 lg:rounded-xl flex items-center justify-center gap-3 group"
                   >
                     ¡Quiero el Ebook ahora!
                   </motion.button>
