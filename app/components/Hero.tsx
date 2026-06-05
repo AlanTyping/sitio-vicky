@@ -12,7 +12,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster="/images/captura.webp"
           className="w-full h-full object-cover"
         >
@@ -52,7 +52,7 @@ export default function Hero() {
         </div>
 
         {/* Info Containers Row - Con animaciones escalonadas */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={{
@@ -69,7 +69,7 @@ export default function Hero() {
         >
 
           {/* Card 1: ¿Qué resuelve? */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -91,7 +91,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Card 2: Mi propuesta */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -113,7 +113,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Card 3: ¿Para quién es? */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
