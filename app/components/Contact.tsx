@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -53,12 +52,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Lado Izquierdo: Info & Instagram */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-10"
+          <div
+            className="space-y-10 animate-slide-in-left"
           >
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-6xl font-light text-slate-900 tracking-tight leading-[1.1]">
@@ -91,15 +86,11 @@ export default function Contact() {
                 </div>
               </div>
             </a>
-          </motion.div>
+          </div>
 
           {/* Lado Derecho: Formulario */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+          <div
+            className="relative animate-slide-in-right"
           >
             <div className="absolute -inset-4 bg-slate-50 rounded-[3rem] -rotate-2 pointer-events-none" />
 
@@ -174,7 +165,7 @@ export default function Contact() {
                 </form>
               )}
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

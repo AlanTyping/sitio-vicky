@@ -1,7 +1,4 @@
-'use client';
-
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function FreeGuide() {
   return (
@@ -16,12 +13,8 @@ export default function FreeGuide() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-center">
 
           {/* Contenido */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center lg:items-start space-y-8 lg:max-w-2xl order-2 lg:order-1 text-center lg:text-left"
+          <div 
+            className="flex flex-col items-center lg:items-start space-y-8 lg:max-w-2xl order-2 lg:order-1 text-center lg:text-left animate-fade-in-up"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-center lg:justify-start gap-3">
@@ -49,29 +42,24 @@ export default function FreeGuide() {
                 'Regulación y desregulación del sistema nervioso docente',
                 'Checklist de reconocimiento emocional - para docentes',
               ].map((feature, index) => (
-                <motion.li
+                <li
                   key={feature}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 text-slate-700 font-normal lg:font-semibold group cursor-default"
+                  className="flex items-center gap-4 text-slate-700 font-normal lg:font-semibold group cursor-default animate-fade-in [animation-fill-mode:forwards] opacity-0"
+                  style={{ animationDelay: `${index * 100 + 400}ms` }}
                 >
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-md group-hover:bg-amber-500 transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                   </span>
                   <span className="group-hover:translate-x-1 transition-transform">{feature}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
 
             <div className="pt-4 flex flex-col items-center lg:items-start">
-              <motion.a
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <a
                 href="/pdf/botiquin-docente.pdf"
                 download
-                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg group"
+                className="inline-flex items-center justify-center gap-3 bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg group active:scale-[0.98]"
               >
                 Descargar Guía Gratis
                 <svg
@@ -89,32 +77,24 @@ export default function FreeGuide() {
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-              </motion.a>
+              </a>
               <p className="mt-4 text-sm text-slate-400 font-medium italic">
                 PDF gratuito • Descarga instantánea
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Visual: Mockup con Imagen Real - Animación de flotación */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            animate={{ 
-              y: [0, -15, 0],
-            }}
-            transition={{ 
-              duration: 0.8,
-              y: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-            viewport={{ once: true }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
+          {/* Visual: Mockup con Imagen Real - Animación de flotación con CSS */}
+          <div 
+            className="flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in [animation-duration:1s]"
           >
-            <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700">
+            <div className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700 animate-[bounce_4s_infinite_ease-in-out] [animation-name:float]">
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes float {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-15px); }
+                }
+              `}} />
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-slate-900/30 blur-3xl rounded-full" />
 
               <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-2xl ring-1 ring-slate-200 bg-white p-4">
@@ -134,7 +114,7 @@ export default function FreeGuide() {
                 ¡GRATIS! ✨
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

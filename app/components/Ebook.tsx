@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { initMercadoPago } from '@mercadopago/sdk-react';
 import { PRODUCTS } from '@/config/products';
 import { usePayment } from '@/hooks/usePayment';
@@ -95,26 +94,18 @@ export default function Ebook() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
 
-          {/* Visual Ebook - Animación de flotación */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            animate={{
-              y: [0, 15, 0],
-            }}
-            transition={{
-              duration: 0.8,
-              y: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-            viewport={{ once: true }}
-            className="flex justify-center lg:justify-start"
+          {/* Visual Ebook - Animación de flotación con CSS */}
+          <div
+            className="flex justify-center lg:justify-start animate-fade-in"
           >
+            <style dangerouslySetInnerHTML={{ __html: `
+              @keyframes float-slow {
+                0%, 100% { transform: translateY(0) rotate(-1deg); }
+                50% { transform: translateY(15px) rotate(0deg); }
+              }
+            `}} />
             <div
-              className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700 group-hover:scale-[1.03] -rotate-1 group-hover:rotate-0 cursor-zoom-in"
+              className="relative group w-full max-w-[420px] aspect-[3/4] transition-all duration-700 hover:scale-[1.03] cursor-zoom-in animate-[float-slow_4s_infinite_ease-in-out]"
               onClick={() => setIsModalOpen(true)}
             >
               <div className="absolute inset-0 bg-sky-500/20 rounded-3xl blur-3xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -128,15 +119,11 @@ export default function Ebook() {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contenido Ebook - Animación de bloque único */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col space-y-6 lg:space-y-8 lg:max-w-3xl"
+          <div
+            className="flex flex-col space-y-6 lg:space-y-8 lg:max-w-3xl animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]"
           >
             {/* Contenido Desktop (se oculta en móvil) */}
             <div className="hidden lg:block space-y-4">
@@ -187,21 +174,19 @@ export default function Ebook() {
                     </div>
                   </div>
 
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  <button
                     onClick={handleOpenInfo}
-                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg lg:text-lg lg:py-4 lg:px-8 lg:rounded-xl flex items-center justify-center gap-3 group"
+                    className="w-full bg-sky-600 hover:bg-sky-500 text-white font-bold py-5 px-10 rounded-2xl shadow-xl shadow-sky-600/20 transition-all text-lg lg:text-lg lg:py-4 lg:px-8 lg:rounded-xl flex items-center justify-center gap-3 group active:scale-[0.98]"
                   >
                     ¡Quiero el Ebook ahora!
-                  </motion.button>
+                  </button>
                 </div>
               </div>
               <p className="mt-4 text-center lg:text-left text-[9px] lg:text-[10px] text-sky-100/30 font-bold uppercase tracking-widest">
                 Acceso inmediato • Formato Digital • Soporte incluido
               </p>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

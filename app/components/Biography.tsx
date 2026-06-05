@@ -1,7 +1,4 @@
-'use client';
-
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function Biography() {
   return (
@@ -20,13 +17,7 @@ export default function Biography() {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 
           {/* Lado de la Imagen - Animación de entrada */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-[360px] shrink-0 flex justify-center lg:justify-start"
-          >
+          <div className="w-full lg:w-[360px] shrink-0 flex justify-center lg:justify-start animate-slide-in-left">
             <div className="relative aspect-[3/4] w-full max-w-[260px] sm:max-w-[300px] lg:max-w-none overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-slate-100">
               <Image
                 src="/images/vicky.webp"
@@ -37,16 +28,10 @@ export default function Biography() {
                 priority
               />
             </div>
-          </motion.div>
+          </div>
 
           {/* Lado del Texto - Animación de entrada */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col justify-center flex-1"
-          >
+          <div className="flex flex-col justify-center flex-1 animate-slide-in-right">
             <div className="max-w-2xl">
               {/* Título Desktop (se oculta en móvil) */}
               <div className="hidden lg:block">
@@ -73,17 +58,11 @@ export default function Biography() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* New Quote Container - Con animación como pediste */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-12 lg:mt-16 pt-12 lg:pt-16 relative flex flex-col items-center"
-        >
+        {/* New Quote Container - Con animación */}
+        <div className="mt-12 lg:mt-16 pt-12 lg:pt-16 relative flex flex-col items-center animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
           <div className="w-24 h-px bg-slate-200 absolute top-0" />
 
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-sky-100">
@@ -97,7 +76,7 @@ export default function Biography() {
               <span className="text-sky-600/80"> se trata de intervenir mejor</span>
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
