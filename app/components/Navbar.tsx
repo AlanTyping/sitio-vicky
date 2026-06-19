@@ -52,7 +52,7 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               className={`font-bold transition-all text-base tracking-wide ${link.highlight
-                ? "bg-amber-500 text-white hover:bg-amber-400 px-7 py-3 rounded-full shadow-lg shadow-amber-500/20 "
+                ? "text-white hover:bg-gray-200/5 px-7 py-3 rounded-lg shadow-lg border "
                 : "text-white hover:text-sky-300"
                 }`}
             >
