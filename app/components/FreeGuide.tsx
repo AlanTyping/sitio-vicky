@@ -104,7 +104,7 @@ export default function FreeGuide() {
                     alt="Botiquín Docente"
                     fill
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
-                    priority
+                    sizes="(max-width: 468px) calc(100vw - 3rem), 420px"
                   />
                 </div>
               </div>

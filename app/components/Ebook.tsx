@@ -65,6 +65,7 @@ export default function Ebook() {
               alt={title}
               fill
               className="object-contain"
+              sizes="(max-width: 896px) calc(100vw - 2rem), 896px"
             />
           </div>
           <button className="absolute top-6 right-6 text-white text-4xl">&times;</button>
@@ -115,7 +116,7 @@ export default function Ebook() {
                   alt={title}
                   fill
                   className="object-cover"
-                  priority
+                  sizes="(max-width: 468px) calc(100vw - 3rem), 420px"
                 />
               </div>
             </div>

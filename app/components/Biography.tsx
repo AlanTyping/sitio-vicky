@@ -25,7 +25,6 @@ export default function Biography() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 260px, 360px"
-                priority
               />
             </div>
           </div>
