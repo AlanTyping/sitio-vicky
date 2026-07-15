@@ -20,26 +20,26 @@ export default function Biography() {
                 sizes="(max-width: 1023px) 100vw, 360px"
                 priority
               />
-              <div className="absolute inset-0 bg-black/25 lg:hidden" aria-hidden="true" />
-              <div className="absolute bottom-14 left-6 right-6 z-10 grid grid-cols-2 gap-3 lg:hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/10 to-black/40 lg:hidden" aria-hidden="true" />
+              <div className="absolute bottom-24 left-6 right-6 z-10 grid grid-cols-2 gap-3 lg:hidden">
                 <a
                   href="#guia-gratuita"
-                  className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[#315b3a] px-4 text-center text-sm font-bold text-white shadow-xl shadow-slate-900/30 transition-colors hover:bg-[#25472d] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#315b3a]"
+                  className="inline-flex min-h-16 items-center justify-center rounded-2xl bg-[#315b3a] px-3 text-center text-sm font-bold leading-tight text-white shadow-xl shadow-slate-900/30 transition-all hover:bg-[#25472d] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#315b3a] active:scale-[0.98]"
                 >
-                  Guía gratuita
+                  Descargar guía gratis
                 </a>
                 <a
                   href="#ebook"
-                  className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/70 bg-[#edf3e8]/95 px-4 text-center text-sm font-bold text-[#315b3a] shadow-xl shadow-slate-900/25 backdrop-blur-sm transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#315b3a] focus:ring-offset-2 focus:ring-offset-[#edf3e8]"
+                  className="inline-flex min-h-16 items-center justify-center rounded-2xl border border-white/70 bg-[#edf3e8]/95 px-3 text-center text-sm font-bold leading-tight text-[#315b3a] shadow-xl shadow-slate-900/25 backdrop-blur-sm transition-all hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#315b3a] focus:ring-offset-2 focus:ring-offset-[#edf3e8] active:scale-[0.98]"
                 >
-                  Ver el ebook
+                  Conocer el ebook
                 </a>
               </div>
             </div>
           </div>
 
           {/* Lado del Texto - Animación de entrada */}
-          <div className="relative z-20 -mt-8 flex w-full flex-1 flex-col justify-center rounded-t-[2rem] bg-white px-6 pt-8 animate-slide-in-right lg:mt-0 lg:w-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:pt-0">
+          <div className="relative z-20 -mt-16 flex w-full flex-1 flex-col justify-center rounded-t-[2rem] bg-white px-6 pt-8 animate-slide-in-right lg:mt-0 lg:w-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:pt-0">
             <div className="max-w-2xl">
               <div className="mb-6 flex items-center gap-3 lg:hidden">
                 <span className="h-0.5 w-8 rounded-full bg-[#315b3a]" aria-hidden="true" />
@@ -59,7 +59,7 @@ export default function Biography() {
                 </h2>
               </div>
 
-              <div className="space-y-6 text-lg lg:text-xl text-slate-600 leading-relaxed">
+              <div className="space-y-5 text-base leading-[1.75] text-slate-600 lg:space-y-6 lg:text-xl lg:leading-relaxed">
                 <p>
                   Durante años me encontré con grupos que no respondían y con mucho desgaste en el aula. Hasta que entendí que <span className="text-slate-900 font-semibold border-b-2 border-sky-100">no se trataba solo de qué hacía, sino de cómo intervenía</span> en esos momentos.
                 </p>

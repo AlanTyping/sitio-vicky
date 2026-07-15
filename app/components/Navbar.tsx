@@ -19,10 +19,10 @@ const Navbar = () => {
 
   return (
     <header className="relative top-0 z-50 w-full border-b border-slate-100 bg-white lg:absolute lg:border-0 lg:bg-transparent lg:py-8">
-      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:p-6 lg:px-8">
+      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:p-6 lg:px-8">
 
         <div className="flex lg:flex-1">
-          <Link href="/" className="text-3xl font-black tracking-tight text-[#315b3a] lg:text-4xl lg:text-white">
+          <Link href="/" className="text-2xl font-black tracking-tight text-[#315b3a] lg:text-4xl lg:text-white">
             Vicky Aphalo
           </Link>
         </div>
@@ -30,13 +30,13 @@ const Navbar = () => {
         <div className="flex lg:hidden">
           <button
             onClick={toggleMenu}
-            className="rounded-lg p-3 text-[#315b3a] transition-colors hover:bg-[#315b3a]/10"
+            className="rounded-lg p-2.5 text-[#315b3a] transition-all hover:bg-[#315b3a]/10 active:scale-95"
             aria-label="Menu"
           >
             {isOpen ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             )}
           </button>
         </div>
@@ -59,7 +59,7 @@ const Navbar = () => {
 
       {/* Mobile Menu - Improved with blur and animations */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`lg:hidden fixed inset-0 z-40 bg-[#16351f]/85 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
         onClick={() => setIsOpen(false)}
       >
@@ -72,8 +72,8 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               className={`text-2xl font-black transition-colors ${link.highlight
-                ? "text-amber-400"
-                : "text-white hover:text-sky-300"
+                ? "text-[#c9e0bf]"
+                : "text-white hover:text-[#c9e0bf]"
                 }`}
               onClick={() => setIsOpen(false)}
             >
