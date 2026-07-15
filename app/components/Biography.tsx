@@ -24,13 +24,13 @@ export default function Biography() {
               <div className="absolute bottom-24 left-6 right-6 z-10 grid grid-cols-2 gap-3 lg:hidden">
                 <a
                   href="#guia-gratuita"
-                  className="inline-flex min-h-16 items-center justify-center rounded-2xl bg-[#315b3a] px-3 text-center text-sm font-bold leading-tight text-white shadow-xl shadow-slate-900/30 transition-all hover:bg-[#25472d] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#315b3a] active:scale-[0.98]"
+                  className="inline-flex min-h-16 items-center justify-center rounded-2xl bg-sky-600 px-3 text-center text-sm font-bold leading-tight text-white shadow-xl shadow-slate-900/30 transition-all hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sky-600 active:scale-[0.98]"
                 >
                   Descargar guía gratis
                 </a>
                 <a
                   href="#ebook"
-                  className="inline-flex min-h-16 items-center justify-center rounded-2xl border border-white/70 bg-[#edf3e8]/95 px-3 text-center text-sm font-bold leading-tight text-[#315b3a] shadow-xl shadow-slate-900/25 backdrop-blur-sm transition-all hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#315b3a] focus:ring-offset-2 focus:ring-offset-[#edf3e8] active:scale-[0.98]"
+                  className="inline-flex min-h-16 items-center justify-center rounded-2xl border border-sky-200 bg-sky-50/95 px-3 text-center text-sm font-bold leading-tight text-sky-700 shadow-xl shadow-slate-900/25 backdrop-blur-sm transition-all hover:bg-white focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 focus:ring-offset-sky-50 active:scale-[0.98]"
                 >
                   Conocer el ebook
                 </a>
@@ -42,8 +42,8 @@ export default function Biography() {
           <div className="relative z-20 -mt-16 flex w-full flex-1 flex-col justify-center rounded-t-[2rem] bg-white px-6 pt-8 animate-slide-in-right lg:mt-0 lg:w-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:pt-0">
             <div className="max-w-2xl">
               <div className="mb-6 flex items-center gap-3 lg:hidden">
-                <span className="h-0.5 w-8 rounded-full bg-[#315b3a]" aria-hidden="true" />
-                <p className="text-sm font-bold tracking-tight text-[#315b3a]">
+                <span className="h-0.5 w-8 rounded-full bg-sky-500" aria-hidden="true" />
+                <p className="text-sm font-bold tracking-tight text-sky-700">
                   Sobre mí
                 </p>
               </div>
