@@ -72,6 +72,7 @@ export default function RootLayout({
           href="/videos/clases-video.mp4"
           as="video"
           type="video/mp4"
+          media="(min-width: 1024px)"
         />
       </head>
       <body className={`${lexend.variable} font-sans min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900`}>

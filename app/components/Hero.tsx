@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 export default function Hero() {
   return (
-    <section className="relative min-h-[50vh] md:min-h-screen flex flex-col bg-slate-900 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section className="relative hidden min-h-screen flex-col overflow-hidden bg-slate-900 font-[family-name:var(--font-lexend)] lg:flex">
       {/* Background Video Layer (Full Screen) */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -14,7 +12,11 @@ export default function Hero() {
           poster="/images/captura.webp"
           className="w-full h-full object-cover"
         >
-          <source src="/videos/clases-video.mp4" type="video/mp4" />
+          <source
+            src="/videos/clases-video.mp4"
+            type="video/mp4"
+            media="(min-width: 1024px)"
+          />
           Tu navegador no soporta videos.
         </video>
         {/* Dark Overlay with Gradient */}

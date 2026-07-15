@@ -1,15 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -23,11 +18,11 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="absolute top-0 z-50 w-full bg-transparent py-6 lg:py-8">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <header className="relative top-0 z-50 w-full border-b border-slate-100 bg-white lg:absolute lg:border-0 lg:bg-transparent lg:py-8">
+      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:p-6 lg:px-8">
 
         <div className="flex lg:flex-1">
-          <Link href="/" className="text-3xl lg:text-4xl font-black text-white tracking-tight">
+          <Link href="/" className="text-3xl font-black tracking-tight text-[#315b3a] lg:text-4xl lg:text-white">
             Vicky Aphalo
           </Link>
         </div>
@@ -35,7 +30,7 @@ const Navbar = () => {
         <div className="flex lg:hidden">
           <button
             onClick={toggleMenu}
-            className="text-white p-3 hover:bg-white/10 rounded-lg transition-colors"
+            className="rounded-lg p-3 text-[#315b3a] transition-colors hover:bg-[#315b3a]/10"
             aria-label="Menu"
           >
             {isOpen ? (
@@ -63,32 +58,30 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Menu - Improved with blur and animations */}
-      {mounted && (
+      <div
+        className={`lg:hidden fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={() => setIsOpen(false)}
+      >
         <div
-          className={`lg:hidden fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          className={`flex flex-col items-center justify-center h-full gap-8 transition-transform duration-300 ${isOpen ? "scale-100" : "scale-95"
             }`}
-          onClick={() => setIsOpen(false)}
         >
-          <div
-            className={`flex flex-col items-center justify-center h-full gap-8 transition-transform duration-300 ${isOpen ? "scale-100" : "scale-95"
-              }`}
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-2xl font-black transition-colors ${link.highlight
-                  ? "text-amber-400"
-                  : "text-white hover:text-sky-300"
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`text-2xl font-black transition-colors ${link.highlight
+                ? "text-amber-400"
+                : "text-white hover:text-sky-300"
+                }`}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 };

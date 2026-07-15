@@ -2,36 +2,52 @@ import Image from 'next/image';
 
 export default function Biography() {
   return (
-    <section id="biografia" className="relative bg-white pt-12 lg:pt-24 pb-12 lg:pb-16 overflow-hidden font-[family-name:var(--font-lexend)]">
+    <section id="biografia" className="relative overflow-hidden bg-white pb-12 font-[family-name:var(--font-lexend)] lg:pt-24 lg:pb-16">
       {/* Elemento decorativo sutil */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 opacity-50 pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-        {/* Título móvil (arriba de la imagen) */}
-        <div className="lg:hidden mb-10">
-          <h2 className="text-3xl font-light text-slate-900 leading-[1.1] tracking-tight">
-            Soy Victoria Aphalo, docente apasionada por la <span className="text-sky-700 italic font-bold">infancia y la pedagogía</span>
-          </h2>
-        </div>
-
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+      <div className="relative z-10 mx-auto max-w-7xl lg:px-8">
+        <div className="flex flex-col items-center lg:flex-row lg:gap-20">
 
           {/* Lado de la Imagen - Animación de entrada */}
-          <div className="w-full lg:w-[360px] shrink-0 flex justify-center lg:justify-start animate-slide-in-left">
-            <div className="relative aspect-[3/4] w-full max-w-[260px] sm:max-w-[300px] lg:max-w-none overflow-hidden rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-slate-100">
+          <div className="flex w-full shrink-0 justify-center animate-slide-in-left lg:w-[360px] lg:justify-start">
+            <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-100 lg:max-w-none lg:rounded-[2rem] lg:shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
               <Image
                 src="/images/vicky.webp"
                 alt="Vicky Aphalo - Habitar el Aula"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 260px, 360px"
+                sizes="(max-width: 1023px) 100vw, 360px"
+                priority
               />
+              <div className="absolute inset-0 bg-black/25 lg:hidden" aria-hidden="true" />
+              <div className="absolute bottom-14 left-6 right-6 z-10 grid grid-cols-2 gap-3 lg:hidden">
+                <a
+                  href="#guia-gratuita"
+                  className="inline-flex min-h-14 items-center justify-center rounded-2xl bg-[#315b3a] px-4 text-center text-sm font-bold text-white shadow-xl shadow-slate-900/30 transition-colors hover:bg-[#25472d] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#315b3a]"
+                >
+                  Guía gratuita
+                </a>
+                <a
+                  href="#ebook"
+                  className="inline-flex min-h-14 items-center justify-center rounded-2xl border border-white/70 bg-[#edf3e8]/95 px-4 text-center text-sm font-bold text-[#315b3a] shadow-xl shadow-slate-900/25 backdrop-blur-sm transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#315b3a] focus:ring-offset-2 focus:ring-offset-[#edf3e8]"
+                >
+                  Ver el ebook
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Lado del Texto - Animación de entrada */}
-          <div className="flex flex-col justify-center flex-1 animate-slide-in-right">
+          <div className="relative z-20 -mt-8 flex w-full flex-1 flex-col justify-center rounded-t-[2rem] bg-white px-6 pt-8 animate-slide-in-right lg:mt-0 lg:w-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:pt-0">
             <div className="max-w-2xl">
+              <div className="mb-6 flex items-center gap-3 lg:hidden">
+                <span className="h-0.5 w-8 rounded-full bg-[#315b3a]" aria-hidden="true" />
+                <p className="text-sm font-bold tracking-tight text-[#315b3a]">
+                  Sobre mí
+                </p>
+              </div>
+
               {/* Título Desktop (se oculta en móvil) */}
               <div className="hidden lg:block">
                 <span className="text-sky-600 font-bold uppercase tracking-[0.2em] text-xs mb-5 block">
@@ -61,7 +77,7 @@ export default function Biography() {
         </div>
 
         {/* New Quote Container - Con animación */}
-        <div className="mt-12 lg:mt-16 pt-12 lg:pt-16 relative flex flex-col items-center animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
+        <div className="relative mt-12 flex flex-col items-center px-6 pt-12 animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards] lg:mt-16 lg:px-0 lg:pt-16">
           <div className="w-24 h-px bg-slate-200 absolute top-0" />
 
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-sky-100">
