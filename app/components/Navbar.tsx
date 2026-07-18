@@ -18,19 +18,21 @@ const Navbar = () => {
   ];
 
   return (
-    <header className={`relative top-0 z-50 w-full transition-colors lg:absolute lg:border-0 lg:bg-transparent lg:py-8 ${isOpen ? "border-b border-transparent bg-[#0c2a4a]" : "border-b border-sky-100 bg-white"}`}>
-      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:p-6 lg:px-8">
+    <header className={`absolute top-0 z-50 w-full border-0 transition-colors lg:bg-transparent lg:py-8 ${isOpen ? "bg-[#0c2a4a]" : "bg-gradient-to-b from-black/95 to-transparent"}`}>
+      <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:p-6 lg:px-8">
 
         <div className="flex lg:flex-1">
-          <Link href="/" className={`text-2xl font-black tracking-tight lg:text-4xl lg:text-white ${isOpen ? "text-white" : "text-sky-700"}`}>
-            Vicky Aphalo
+          <Link href="/" className="text-white">
+            <span className="block text-xl font-bold leading-tight tracking-tight lg:text-4xl lg:font-black">
+              Vicky Aphalo
+            </span>
           </Link>
         </div>
 
         <div className="flex lg:hidden">
           <button
             onClick={toggleMenu}
-            className={`rounded-lg p-2.5 transition-all active:scale-95 ${isOpen ? "text-white hover:bg-white/10" : "text-sky-700 hover:bg-sky-700/10"}`}
+            className="rounded-lg p-2 text-white transition-all hover:bg-white/10 active:scale-95"
             aria-label="Menu"
           >
             {isOpen ? (
