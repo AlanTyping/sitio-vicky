@@ -62,7 +62,7 @@ export default function Biography() {
 
               <a
                 href="#guia-gratuita"
-                className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl border border-sky-200 bg-white px-5 text-center text-base font-bold leading-tight text-sky-700 shadow-sm transition-all hover:bg-sky-50 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 active:scale-[0.98]"
+                className="inline-flex min-h-12 w-full py-3 items-center justify-center gap-3 rounded-xl border border-white/40 bg-transparent px-5 text-center text-sm font-semibold text-white/90 transition-all hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/70 active:scale-[0.98]"
               >
                 <svg
                   aria-hidden="true"
