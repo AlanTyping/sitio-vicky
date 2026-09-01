@@ -8,7 +8,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/captura.webp"
           className="w-full h-full object-cover"
         >
