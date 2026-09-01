@@ -103,6 +103,7 @@ export default function FreeGuide() {
                     src="/images/botiquin-docente.webp"
                     alt="Botiquín Docente"
                     fill
+                    quality={60}
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 468px) calc(100vw - 3rem), 420px"
                   />
