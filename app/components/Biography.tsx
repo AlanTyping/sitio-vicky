@@ -29,16 +29,16 @@ export default function Biography() {
               aria-hidden="true"
             />
 
-            <div className="mx-auto w-full max-w-xl">
-              <h1 className="mx-auto max-w-sm text-left text-2xl font-bold leading-tight text-white drop-shadow-lg">
-                Herramientas para enseñar con más calma y claridad.
+            <div className="mx-auto w-full max-w-xl animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
+              <h1 className="mx-auto max-w-sm text-left text-2xl font-normal leading-tight text-white drop-shadow-lg">
+                Herramientas para enseñar con más <span className="font-bold">calma</span> y <span className="font-bold">claridad</span>.
               </h1>
             </div>
           </div>
 
           {/* Botones mobile */}
           <div className="relative z-10 -mt-14 bg-gradient-to-b from-transparent via-black/90 to-black px-6 pb-8 pt-6">
-            <div className="mx-auto flex max-w-sm flex-col gap-3">
+            <div className="mx-auto flex max-w-sm flex-col gap-3 animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
               <a
                 href="#ebook"
                 className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-sky-600 px-5 text-center text-base font-bold leading-tight text-white shadow-lg shadow-sky-600/20 transition-all hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 active:scale-[0.98]"
@@ -117,7 +117,7 @@ export default function Biography() {
             </div>
 
             {/* Texto */}
-            <div className="relative z-20 flex w-full flex-1 animate-slide-in-right flex-col justify-center bg-transparent px-6 pt-3 lg:mt-0 lg:w-auto lg:rounded-none lg:px-0 lg:pt-0">
+            <div className="relative z-20 flex w-full flex-1 lg:animate-slide-in-right flex-col justify-center bg-transparent px-6 pt-3 lg:mt-0 lg:w-auto lg:rounded-none lg:px-0 lg:pt-0">
               <div className="max-w-2xl">
                 {/* Título desktop */}
                 <div className="hidden lg:block">
@@ -187,7 +187,7 @@ export default function Biography() {
         </a>
 
         {/* Frase final */}
-        <div className="relative mt-12 flex animate-fade-in-up flex-col items-center px-6 pt-12 opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards] lg:mt-16 lg:px-0 lg:pt-16">
+        <div className="relative mt-12 flex lg:animate-fade-in-up flex-col items-center px-6 pt-12 lg:opacity-0 lg:[animation-delay:400ms] lg:[animation-fill-mode:forwards] lg:mt-16 lg:px-0 lg:pt-16">
           <div className="absolute top-0 h-px w-24 bg-slate-200" />
 
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-sky-100">
