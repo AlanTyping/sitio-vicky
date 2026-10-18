@@ -12,6 +12,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#biografia", label: "Sobre mí" },
+    { href: "#servicios", label: "Servicios" },
     { href: "#guia-gratuita", label: "Guía gratuita", highlight: true },
     { href: "#ebook", label: "Ebook" },
     { href: "#contacto", label: "Contacto" },

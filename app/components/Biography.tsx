@@ -1,10 +1,11 @@
 import Image from 'next/image';
+import ParallaxImage from './ui/ParallaxImage';
 
 export default function Biography() {
   return (
     <section
       id="biografia"
-      className="relative overflow-hidden bg-white pb-0 font-[family-name:var(--font-lexend)] lg:pb-16 lg:pt-24"
+      className="relative z-10 overflow-hidden bg-white pb-0 font-[family-name:var(--font-lexend)] shadow-[0_-30px_60px_-20px_rgba(2,32,71,0.55)] lg:pb-16 lg:pt-24"
     >
       {/* Elemento decorativo sutil */}
       <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/4 rounded-full bg-sky-50 opacity-50 blur-[120px]" />
@@ -14,14 +15,11 @@ export default function Biography() {
         <div className="bg-black lg:hidden">
           {/* Imagen mobile */}
           <div className="relative isolate flex min-h-[480px] items-end overflow-hidden bg-slate-900 px-6 pb-16 pt-20 sm:min-h-[520px]">
-            <Image
+            <ParallaxImage
               src="/images/vicky.webp"
-              alt=""
-              fill
-              className="-z-20 object-cover object-[center_30%]"
-              sizes="100vw"
+              className="object-cover object-[center_30%]"
+              sizes="(max-width: 1280px) 100vw, 1280px"
               priority
-              aria-hidden="true"
             />
 
             <div
@@ -30,9 +28,15 @@ export default function Biography() {
             />
 
             <div className="mx-auto w-full max-w-xl animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-              <h1 className="mx-auto max-w-sm text-left text-2xl font-normal leading-tight text-white drop-shadow-lg">
-                Herramientas para enseñar con más <span className="font-bold">calma</span> y <span className="font-bold">claridad</span>.
+              <h1 className="mx-auto max-w-sm text-left text-4xl font-bold leading-tight text-white drop-shadow-lg">
+                Vicky Aphalo
               </h1>
+              <p className="mx-auto mt-3 max-w-sm text-left text-xs font-bold uppercase tracking-[0.18em] text-sky-200/90">
+                Licenciada en Educación y maestra
+              </p>
+              <p className="mx-auto mt-4 max-w-sm text-left text-lg font-light leading-snug text-white/90 drop-shadow-lg">
+                Herramientas para enseñar con más <span className="font-bold">calma</span> y <span className="font-bold">claridad</span>.
+              </p>
             </div>
           </div>
 
@@ -80,6 +84,27 @@ export default function Biography() {
                 </svg>
 
                 Descargar guía gratis
+              </a>
+
+              <a
+                href="#servicios"
+                className="inline-flex min-h-12 w-full py-3 items-center justify-center gap-3 rounded-xl border border-sky-300/50 bg-transparent px-5 text-center text-sm font-semibold text-sky-100 transition-all hover:bg-sky-500/10 focus:outline-none focus:ring-2 focus:ring-sky-300 active:scale-[0.98]"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-5 w-5 shrink-0"
+                >
+                  <path d="M12 5v14" />
+                  <path d="m19 12-7 7-7-7" />
+                </svg>
+
+                Conocé mis servicios
               </a>
             </div>
           </div>

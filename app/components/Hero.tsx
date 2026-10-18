@@ -1,8 +1,95 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const shadeRef = useRef<HTMLDivElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // Respetamos la preferencia de movimiento reducido
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // El hero queda fijo mientras la sección siguiente lo tapa:
+    // medimos ese recorrido en el contenedor padre.
+    let range = 0;
+
+    const measure = () => {
+      const heroHeight = section.offsetHeight;
+      const parentHeight = section.parentElement?.offsetHeight ?? heroHeight;
+      range = Math.max(parentHeight - heroHeight, 0);
+    };
+
+    let frame = 0;
+
+    const render = () => {
+      frame = 0;
+
+      const heroHeight = section.offsetHeight || 1;
+      const parent = section.parentElement;
+      const scrolled = parent ? -parent.getBoundingClientRect().top : -section.getBoundingClientRect().top;
+
+      const total = range > 0 ? range : heroHeight;
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
+
+      // El video se acerca (zoom) mientras la sección de abajo sube
+      if (backdropRef.current) {
+        backdropRef.current.style.transform = `translate3d(0, ${progress * 10}%, 0) scale(${1 + progress * 0.2})`;
+      }
+
+      // El contenido se mantiene quieto y recién se desvanece cuando lo tapan
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translate3d(0, ${-progress * 10}%, 0)`;
+        contentRef.current.style.opacity = `${1 - Math.max(0, (progress - 0.55) / 0.45)}`;
+      }
+
+      // Oscurecemos de a poco para que la sección que sube gane protagonismo
+      if (shadeRef.current) {
+        shadeRef.current.style.opacity = `${progress * 0.45}`;
+      }
+
+      if (arrowRef.current) {
+        arrowRef.current.style.opacity = `${Math.max(0, 0.5 - progress * 2)}`;
+      }
+    };
+
+    const schedule = () => {
+      if (!frame) frame = window.requestAnimationFrame(render);
+    };
+
+    const handleResize = () => {
+      measure();
+      schedule();
+    };
+
+    measure();
+    render();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', handleResize);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <section className="relative hidden min-h-screen flex-col overflow-hidden bg-slate-900 font-[family-name:var(--font-lexend)] lg:flex">
-      {/* Background Video Layer (Full Screen) */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative hidden h-screen flex-col overflow-hidden bg-slate-900 font-[family-name:var(--font-lexend)] lg:sticky lg:top-0 lg:flex"
+    >
+      {/* Video de fondo (con margen extra para el parallax) */}
+      <div
+        ref={backdropRef}
+        className="absolute -top-[15%] left-0 h-[130%] w-full will-change-transform"
+      >
         <video
           autoPlay
           muted
@@ -19,84 +106,75 @@ export default function Hero() {
           />
           Tu navegador no soporta videos.
         </video>
-        {/* Dark Overlay with Gradient */}
+        {/* Overlays */}
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-28 lg:pt-32 px-6 pb-10 md:pb-20 lg:px-12">
+      {/* Velo que se intensifica con el scroll */}
+      <div
+        ref={shadeRef}
+        className="pointer-events-none absolute inset-0 z-[5] bg-[#06162a] opacity-0"
+        aria-hidden="true"
+      />
 
-        {/* Title & Subtitle */}
-        <div className="text-center mb-12 lg:mb-20">
+      {/* Contenido */}
+      <div
+        ref={contentRef}
+        className="relative z-10 flex-1 w-full flex flex-col items-center justify-center pt-28 lg:pt-32 px-6 pb-10 md:pb-20 lg:px-12 will-change-transform"
+      >
+        {/* Título y subtítulo */}
+        <div className="text-center mb-10 lg:mb-16">
           <h1 className="text-[42px] sm:text-[72px] lg:text-[96px] font-bold tracking-tight text-white leading-[0.9] drop-shadow-2xl animate-fade-in-up">
-            Habitar el aula
+            Vicky Aphalo
           </h1>
           <div className="mt-6 flex items-center justify-center gap-3 lg:gap-4 animate-fade-in [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
-            <span className="h-px w-6 lg:w-8 bg-white/40"></span>
-            <p className="text-[12px] lg:text-[18px] font-medium text-white/90 tracking-[0.2em] lg:tracking-[0.3em] uppercase">
-              Formación docente consciente
+            <span className="h-px w-6 lg:w-10 bg-white/40"></span>
+            <p className="text-[12px] lg:text-[16px] font-medium uppercase tracking-[0.18em] lg:tracking-[0.28em] text-white/90 text-center">
+              Licenciada en Educación y maestra
             </p>
-            <span className="h-px w-6 lg:w-8 bg-white/40"></span>
+            <span className="h-px w-6 lg:w-10 bg-white/40"></span>
           </div>
         </div>
 
-        {/* Info Containers Row - Con animaciones de CSS */}
-        <div className="mx-auto max-w-7xl w-full hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 animate-fade-in [animation-delay:600ms] opacity-0 [animation-fill-mode:forwards]">
+        {/* Propuestas (sin tarjeta, directo sobre el video) */}
+        <div className="flex flex-col items-center text-center animate-fade-in [animation-delay:600ms] opacity-0 [animation-fill-mode:forwards]">
+          <p className="text-base lg:text-xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
+            Sesiones 1:1
+            <span className="mx-2 lg:mx-3 text-white/50" aria-hidden="true">&middot;</span>
+            Talleres
+            <span className="mx-2 lg:mx-3 text-white/50" aria-hidden="true">&middot;</span>
+            Capacitaciones institucionales
+          </p>
 
-          {/* Card 1: ¿Qué resuelve? */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-sky-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" /><path d="M8 7h6" /><path d="M8 11h8" /><path d="M8 15h6" /></svg>
-            </div>
-            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
-              <div className="p-2 bg-sky-50 text-sky-600 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>
-              </div>
-              <h3 className="text-lg font-bold tracking-tight">¿Qué resuelve?</h3>
-            </div>
-            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
-              Te ayudo a dejar de sostener el aula desde el cansancio, el grito o la improvisación, dándote herramientas concretas para intervenir con sentido y claridad.
-            </p>
-          </div>
-
-          {/* Card 2: Mi propuesta */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-amber-500 relative overflow-hidden group hover:bg-white transition-all duration-300">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.7 1.5-1.7 1.5-3 0-2.2-1.8-4-4-4s-4 1.8-4 4c0 1.3.5 2.3 1.5 3 .8.8 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>
-            </div>
-            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
-              <div className="p-2 bg-amber-50 text-amber-600 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>
-              </div>
-              <h3 className="text-lg font-bold tracking-tight">Mi propuesta</h3>
-            </div>
-            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
-              Una mirada práctica y consciente para transformar el vínculo en el aula, con dinámicas, estrategias didácticas y pausas activas que podés aplicar desde el primer día.
-            </p>
-          </div>
-
-          {/* Card 3: ¿Para quién es? */}
-          <div className="bg-white/95 backdrop-blur-md p-6 lg:p-8 rounded-tr-3xl rounded-bl-3xl shadow-2xl border-l-[6px] border-blue-400 relative overflow-hidden group hover:bg-white transition-all duration-300">
-            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-            </div>
-            <div className="flex items-center gap-3 mb-3 lg:mb-4 text-slate-800">
-              <div className="p-2 bg-blue-50 text-blue-500 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
-              </div>
-              <h3 className="text-lg font-bold tracking-tight">¿Para quién es?</h3>
-            </div>
-            <p className="text-slate-600 leading-relaxed text-[14px] lg:text-[15px]">
-              Para profesionales de la educación que quieren pararse distinto: con más presencia, menos desgaste y herramientas concretas para acompañar a sus alumnos sin desbordarse.
-            </p>
-          </div>
+          <a
+            href="#servicios"
+            className="group/cta mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base lg:text-lg font-bold text-slate-900 shadow-2xl shadow-black/30 transition-all hover:bg-sky-50 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+          >
+            Conocé mis servicios
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="transition-transform group-hover/cta:translate-y-1"
+            >
+              <path d="M12 5v14" />
+              <path d="m19 12-7 7-7-7" />
+            </svg>
+          </a>
         </div>
       </div>
 
-      {/* Floating White Arrow */}
+      {/* Flecha flotante */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden sm:block">
-        <div className="animate-bounce opacity-50">
+        <div ref={arrowRef} className="animate-bounce opacity-50">
           <svg
             width="20"
             height="40"
