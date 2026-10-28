@@ -1,30 +1,59 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const Navbar = () => {
+type NavbarProps = {
+  theme?: "dark" | "light";
+  compact?: boolean;
+};
+
+const Navbar = ({ theme = "dark", compact = false }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isLight = theme === "light";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const navLinks = [
-    { href: "#biografia", label: "Sobre mí" },
-    { href: "#servicios", label: "Servicios" },
-    { href: "#guia-gratuita", label: "Guía gratuita", highlight: true },
-    { href: "#ebook", label: "Ebook" },
-    { href: "#contacto", label: "Contacto" },
+    { href: isHome ? "#biografia" : "/#biografia", label: "Sobre mí" },
+    { href: isHome ? "#servicios" : "/#servicios", label: "Servicios" },
+    { href: isHome ? "#guia-gratuita" : "/#guia-gratuita", label: "Guía gratuita", highlight: true },
+    { href: isHome ? "#ebook" : "/#ebook", label: "Ebook" },
+    { href: isHome ? "#contacto" : "/#contacto", label: "Contacto" },
   ];
 
   return (
-    <header className={`absolute top-0 z-50 w-full border-0 transition-colors lg:bg-transparent lg:py-8 ${isOpen ? "bg-[#0c2a4a]" : "bg-gradient-to-b from-black/95 to-transparent"}`}>
+    <header
+      className={`absolute top-0 z-50 w-full border-0 transition-colors lg:bg-transparent ${
+        compact ? "lg:py-5" : "lg:py-8"
+      } ${
+        isOpen
+          ? "bg-ink"
+          : isLight
+            ? "bg-transparent"
+            : "bg-gradient-to-b from-black/95 to-transparent"
+      }`}
+    >
       <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:p-6 lg:px-8">
-
         <div className="flex lg:flex-1">
-          <Link href="/" className="text-white">
-            <span className="block text-xl font-bold leading-tight tracking-tight lg:text-4xl lg:font-black">
+          <Link
+            href="/"
+            className={`rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+              isOpen || !isLight
+                ? "text-paper focus-visible:ring-marker focus-visible:ring-offset-ink"
+                : "text-ink focus-visible:ring-pencil focus-visible:ring-offset-white"
+            }`}
+          >
+            <span
+              className={`block font-[family-name:var(--font-bitter)] font-semibold leading-tight tracking-tight ${
+                compact ? "text-xl lg:text-2xl" : "text-2xl lg:text-4xl"
+              }`}
+            >
               Vicky Aphalo
             </span>
           </Link>
@@ -33,8 +62,14 @@ const Navbar = () => {
         <div className="flex lg:hidden">
           <button
             onClick={toggleMenu}
-            className="rounded-lg p-2 text-white transition-all hover:bg-white/10 active:scale-95"
-            aria-label="Menu"
+            className={`rounded-2xl p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-95 ${
+              isOpen || !isLight
+                ? "text-paper hover:bg-paper/10 focus-visible:ring-marker focus-visible:ring-offset-ink"
+                : "text-ink hover:bg-ink/5 focus-visible:ring-pencil focus-visible:ring-offset-white"
+            }`}
+            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? (
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -44,15 +79,22 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex gap-x-12 items-center">
+        <div className={`hidden lg:flex items-center ${compact ? "gap-x-8" : "gap-x-10"}`}>
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`font-bold transition-all text-base tracking-wide ${link.highlight
-                ? "text-white hover:bg-gray-200/5 px-7 py-3 rounded-lg shadow-lg border "
-                : "text-white hover:text-sky-300"
-                }`}
+              className={`rounded-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                compact ? "text-sm" : "text-[15px]"
+              } ${
+                link.highlight && !compact
+                  ? isLight
+                    ? "border border-slate-200 bg-paper-soft px-5 py-2.5 text-ink shadow-md shadow-slate-900/5 hover:bg-marker/40 focus-visible:ring-pencil focus-visible:ring-offset-white"
+                    : "border border-paper/40 bg-paper px-5 py-2.5 text-ink shadow-md shadow-black/30 hover:bg-marker focus-visible:ring-marker focus-visible:ring-offset-ink"
+                  : isLight
+                    ? "text-ink-soft hover:text-pencil focus-visible:ring-pencil focus-visible:ring-offset-white"
+                    : "text-paper/75 hover:text-marker focus-visible:ring-marker focus-visible:ring-offset-ink"
+              }`}
             >
               {link.label}
             </a>
@@ -60,30 +102,35 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu - Improved with blur and animations */}
+      {/* Menú mobile */}
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-gradient-to-b from-[#0c2a4a]/90 to-slate-950/90 backdrop-blur-xl transition-all duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
+        id="mobile-menu"
+        className={`lg:hidden fixed inset-0 z-40 bg-ink/95 backdrop-blur-xl transition-all duration-300 ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
         onClick={() => setIsOpen(false)}
       >
-        <div className="absolute -right-20 top-24 h-64 w-64 rounded-full bg-sky-400/20 blur-3xl" aria-hidden="true" />
         <div
-          className={`relative flex h-full flex-col items-center justify-center gap-8 transition-transform duration-300 ${isOpen ? "scale-100" : "scale-95"
-            }`}
+          className={`relative flex h-full flex-col items-center justify-center gap-7 transition-transform duration-300 ${
+            isOpen ? "scale-100" : "scale-95"
+          }`}
         >
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`text-2xl font-black transition-colors ${link.highlight
-                ? "text-sky-300"
-                : "text-white hover:text-sky-300"
-                }`}
+              className={`rounded-sm font-[family-name:var(--font-bitter)] text-3xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-marker focus-visible:ring-offset-4 focus-visible:ring-offset-ink ${
+                link.highlight ? "text-marker" : "text-paper hover:text-marker"
+              }`}
               onClick={() => setIsOpen(false)}
             >
               {link.label}
             </a>
           ))}
+
+          <p className="mt-8 font-[family-name:var(--font-caveat)] text-xl text-paper/50">
+            Licenciada en Educación y maestra
+          </p>
         </div>
       </div>
     </header>

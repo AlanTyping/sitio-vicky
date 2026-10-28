@@ -11,44 +11,84 @@ export default function InfoModal({ isOpen, onClose, onNext }: InfoModalProps) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-ink/80 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* Modal Content */}
-      <div className="relative bg-white w-full max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-300">
+      <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-paper-soft shadow-[12px_12px_0_rgba(0,0,0,0.3)] animate-in fade-in zoom-in duration-300">
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors z-10"
+          aria-label="Cerrar"
+          className="absolute right-5 top-5 z-10 flex h-8 w-8 items-center justify-center rounded-full text-ink/40 transition-colors hover:bg-ink/5 hover:text-ink focus:outline-none focus:ring-2 focus:ring-pencil"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-5 w-5"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
         </button>
 
-        <div className="p-8 lg:p-10">
-          <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            </div>
+        <div className="p-7 sm:p-9">
+          <div className="mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-olive/15 text-olive">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
           </div>
 
-          <div className="text-center space-y-4 mb-8">
-            <h3 className="text-2xl lg:font-black text-[#0c2a4a]">Información Importante</h3>
-            <p className="text-slate-600 font-medium leading-relaxed">
-              Al pagar con <span className="text-[#009EE3] font-bold">Mercado Pago</span> o <span className="text-[#7700c1] font-bold">Gumroad</span>, se envía el Ebook en formato PDF al <span className="font-bold">email asociado</span> a tu cuenta.
-            </p>
-          </div>
+          <h3 className="mt-4 font-[family-name:var(--font-bitter)] text-2xl font-semibold text-ink">
+            Información importante
+          </h3>
+
+          <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+            Al pagar con <span className="font-bold text-[#009EE3]">Mercado Pago</span> o{' '}
+            <span className="font-bold text-[#7700c1]">Gumroad</span>, se envía el Ebook en
+            formato PDF al <span className="font-bold text-ink">email asociado</span> a tu
+            cuenta.
+          </p>
 
           <button
+            type="button"
             onClick={onNext}
-            className="w-full bg-sky-600 hover:bg-sky-500 text-white font-medium py-5 px-6 rounded-2xl shadow-xl shadow-sky-600/20 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+            className="group mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-sky-600 px-6 py-4 text-base font-bold text-white shadow-lg shadow-sky-600/25 transition-all hover:-translate-y-0.5 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/30 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 focus:ring-offset-paper-soft active:translate-y-0 active:shadow-md active:shadow-sky-600/20"
           >
             Siguiente
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
           </button>
 
-          <p className="mt-6 text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+          <p className="mt-4 text-center font-[family-name:var(--font-caveat)] text-lg leading-none text-olive">
             ¡Ya casi es tuyo!
           </p>
         </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lexend } from "next/font/google";
+import { Lexend, Bitter, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -9,39 +9,49 @@ const lexend = Lexend({
   display: 'swap',
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bitter = Bitter({
+  variable: "--font-bitter",
   subsets: ["latin"],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   display: 'swap',
-  preload: false,
 });
 
 export const metadata: Metadata = {
-  title: "Vicky Aphalo | Regulación Emocional para Educadores",
-  description: "Espacio de sanación y fortalecimiento diseñado exclusivamente para docentes. Supera el estrés laboral, recupera tu bienestar emocional y redescubre tu propósito en la enseñanza.",
-  keywords: ["regulación emocional", "docentes", "bienestar educadores", "estrés laboral docente", "Vicky Aphalo", "taller para maestros"],
+  metadataBase: new URL("https://vickyaphalo.site"),
+  title: "Vicky Aphalo | Acompañamiento pedagógico para docentes",
+  description:
+    "Sesiones 1:1, talleres y capacitaciones para docentes que buscan comprender lo que pasa en el aula y construir un plan de intervención concreto.",
+  keywords: [
+    "acompañamiento docente",
+    "sesiones 1:1",
+    "talleres para docentes",
+    "capacitaciones institucionales",
+    "intervención en el aula",
+    "Vicky Aphalo",
+    "educación",
+  ],
   authors: [{ name: "Vicky Aphalo" }],
   icons: {
     icon: "/images/vicky-square.jpg",
     apple: "/images/vicky-square.jpg",
   },
   openGraph: {
-    title: "Vicky Aphalo | Bienestar para Educadores",
-    description: "Sanar, fortalecerse y reencontrar el propósito en la enseñanza.",
-    url: "https://sitio-vicky.vercel.app",
+    title: "Vicky Aphalo | Acompañamiento pedagógico para docentes",
+    description:
+      "Herramientas para enseñar con más calma y claridad. Sesiones 1:1, talleres y capacitaciones para equipos docentes.",
+    url: "https://vickyaphalo.site",
     siteName: "Vicky Aphalo",
     images: [
       {
         url: "/images/vicky-square.jpg",
         width: 1200,
         height: 630,
-        alt: "Vicky Aphalo - Bienestar Docente",
+        alt: "Vicky Aphalo, Licenciada en Educación y maestra",
       },
     ],
     locale: "es_AR",
@@ -49,8 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vicky Aphalo | Bienestar para Educadores",
-    description: "Acompañamiento emocional diseñado exclusivamente para educadores.",
+    title: "Vicky Aphalo | Acompañamiento pedagógico para docentes",
+    description:
+      "Sesiones 1:1, talleres y capacitaciones para pensar situaciones concretas del aula.",
     images: ["/images/vicky-square.jpg"],
   },
 };
@@ -64,7 +75,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased scroll-smooth`}
+      className={`${lexend.variable} ${bitter.variable} ${caveat.variable} h-full antialiased scroll-smooth`}
     >
       <head>
         <link
@@ -75,7 +86,7 @@ export default function RootLayout({
           media="(min-width: 1024px)"
         />
       </head>
-      <body className={`${lexend.variable} font-sans min-h-full flex flex-col selection:bg-sky-100 selection:text-sky-900`}>
+      <body className="min-h-full flex flex-col font-[family-name:var(--font-lexend)] selection:bg-marker selection:text-ink">
         {children}
         <Analytics />
       </body>

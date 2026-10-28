@@ -1,51 +1,49 @@
 import Image from 'next/image';
-import ParallaxImage from './ui/ParallaxImage';
 
 export default function Biography() {
   return (
     <section
       id="biografia"
-      className="relative z-10 overflow-hidden bg-white pb-0 font-[family-name:var(--font-lexend)] shadow-[0_-30px_60px_-20px_rgba(2,32,71,0.55)] lg:pb-16 lg:pt-24"
+      className="relative z-10 overflow-hidden bg-gradient-to-b from-white via-white to-slate-50 pb-20 font-[family-name:var(--font-lexend)] shadow-[0_-20px_50px_-20px_rgba(15,23,42,0.25)] lg:pb-16 lg:pt-24"
     >
-      {/* Elemento decorativo sutil */}
-      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/4 rounded-full bg-sky-50 opacity-50 blur-[120px]" />
-
+      <div
+        className="pointer-events-none absolute -right-24 top-0 h-[32rem] w-[32rem] -translate-y-1/3 rounded-full bg-sky-50 opacity-70 blur-[120px]"
+        aria-hidden="true"
+      />
       <div className="relative z-10 mx-auto max-w-7xl lg:px-8">
         {/* Hero mobile */}
-        <div className="bg-black lg:hidden">
-          {/* Imagen mobile */}
-          <div className="relative isolate flex min-h-[480px] items-end overflow-hidden bg-slate-900 px-6 pb-16 pt-20 sm:min-h-[520px]">
-            <ParallaxImage
+        <div className="bg-slate-950 lg:hidden">
+          <div className="relative isolate flex min-h-[480px] items-end overflow-hidden bg-slate-950 px-6 pb-16 pt-20 sm:min-h-[520px]">
+            <Image
               src="/images/vicky.webp"
-              className="object-cover object-[center_30%]"
-              sizes="(max-width: 1280px) 100vw, 1280px"
+              alt=""
+              fill
               priority
+              sizes="100vw"
+              aria-hidden="true"
+              className="-z-20 object-cover object-[center_30%]"
             />
 
             <div
-              className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-slate-950/20 to-black"
+              className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950"
               aria-hidden="true"
             />
 
-            <div className="mx-auto w-full max-w-xl animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
-              <h1 className="mx-auto max-w-sm text-left text-4xl font-bold leading-tight text-white drop-shadow-lg">
-                Vicky Aphalo
+            <div className="relative z-10 mx-auto w-full max-w-xl animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
+              <h1 className="max-w-md text-3xl font-normal leading-tight text-white sm:text-4xl">
+                Herramientas para enseñar con más{' '}
+                <span className="font-semibold">calma</span> y{' '}
+                <span className="font-semibold">claridad</span>.
               </h1>
-              <p className="mx-auto mt-3 max-w-sm text-left text-xs font-bold uppercase tracking-[0.18em] text-sky-200/90">
-                Licenciada en Educación y maestra
-              </p>
-              <p className="mx-auto mt-4 max-w-sm text-left text-lg font-light leading-snug text-white/90 drop-shadow-lg">
-                Herramientas para enseñar con más <span className="font-bold">calma</span> y <span className="font-bold">claridad</span>.
-              </p>
             </div>
           </div>
 
           {/* Botones mobile */}
-          <div className="relative z-10 -mt-14 bg-gradient-to-b from-transparent via-black/90 to-black px-6 pb-8 pt-6">
+          <div className="relative z-10 -mt-14 bg-gradient-to-b from-transparent via-slate-950/90 to-slate-950 px-6 pb-8 pt-6">
             <div className="mx-auto flex max-w-sm flex-col gap-3 animate-fade-in-up opacity-0 [animation-delay:400ms] [animation-fill-mode:forwards]">
               <a
-                href="#ebook"
-                className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-sky-600 px-5 text-center text-base font-bold leading-tight text-white shadow-lg shadow-sky-600/20 transition-all hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2 active:scale-[0.98]"
+                href="#servicios"
+                className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-xl bg-sky-600 px-5 text-center text-base font-bold leading-tight text-white shadow-lg shadow-sky-600/25 transition-all hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.98]"
               >
                 <svg
                   aria-hidden="true"
@@ -57,16 +55,16 @@ export default function Biography() {
                   strokeLinejoin="round"
                   className="h-5 w-5 shrink-0"
                 >
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+                  <path d="M12 5v14" />
+                  <path d="m19 12-7 7-7-7" />
                 </svg>
 
-                Quiero mi Ebook
+                Ver servicios
               </a>
 
               <a
                 href="#guia-gratuita"
-                className="inline-flex min-h-12 w-full py-3 items-center justify-center gap-3 rounded-xl border border-white/40 bg-transparent px-5 text-center text-sm font-semibold text-white/90 transition-all hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/70 active:scale-[0.98]"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-xl border border-white/40 px-5 py-3 text-center text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-slate-950 active:scale-[0.98]"
               >
                 <svg
                   aria-hidden="true"
@@ -85,84 +83,56 @@ export default function Biography() {
 
                 Descargar guía gratis
               </a>
-
-              <a
-                href="#servicios"
-                className="inline-flex min-h-12 w-full py-3 items-center justify-center gap-3 rounded-xl border border-sky-300/50 bg-transparent px-5 text-center text-sm font-semibold text-sky-100 transition-all hover:bg-sky-500/10 focus:outline-none focus:ring-2 focus:ring-sky-300 active:scale-[0.98]"
-              >
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5 shrink-0"
-                >
-                  <path d="M12 5v14" />
-                  <path d="m19 12-7 7-7-7" />
-                </svg>
-
-                Conocé mis servicios
-              </a>
             </div>
           </div>
         </div>
 
         {/* Contenido de biografía */}
-        <div className="relative z-20 bg-white lg:contents">
-          {/* Título mobile */}
-          <div className="flex items-center px-6 pb-0 pt-6 lg:hidden">
-            <div className="flex items-center gap-3">
-              <span
-                className="h-0.5 w-8 rounded-full bg-sky-500"
-                aria-hidden="true"
-              />
-
-              <p className="text-sm font-bold tracking-tight text-sky-700">
-                Sobre mí
-              </p>
-            </div>
-          </div>
-
+        <div className="relative z-20 bg-transparent lg:contents">
           <div className="flex flex-col items-center lg:flex-row lg:gap-20">
-            {/* Imagen desktop */}
+            {/* Imagen desktop: polaroid */}
             <div className="hidden w-full shrink-0 animate-slide-in-left justify-center px-6 lg:flex lg:w-[360px] lg:justify-start lg:px-0">
-              <div className="relative aspect-[3/4] w-full max-w-[280px] overflow-hidden rounded-[2rem] bg-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.08)] lg:max-w-none">
-                <Image
-                  src="/images/vicky.webp"
-                  alt="Vicky Aphalo - Habitar el Aula"
-                  fill
-                  className="object-cover"
-                  sizes="360px"
-                  priority
+              <div className="relative w-full max-w-[320px] -rotate-2 bg-paper-soft p-3 pb-11 shadow-xl shadow-slate-900/10 ring-1 ring-slate-200">
+                <span
+                  className="absolute -top-3 left-1/2 h-5 w-20 -translate-x-1/2 -rotate-1 bg-marker/70"
+                  aria-hidden="true"
                 />
+
+                <div className="relative aspect-[3/4] overflow-hidden bg-paper">
+                  <Image
+                    src="/images/vicky.webp"
+                    alt="Vicky Aphalo - Habitar el Aula"
+                    fill
+                    className="object-cover object-[center_30%]"
+                    sizes="320px"
+                    priority
+                  />
+                </div>
+
+                <span className="absolute inset-x-0 bottom-3 text-center font-[family-name:var(--font-caveat)] text-lg leading-none text-ink/60">
+                  Vicky
+                </span>
               </div>
             </div>
 
             {/* Texto */}
             <div className="relative z-20 flex w-full flex-1 lg:animate-slide-in-right flex-col justify-center bg-transparent px-6 pt-3 lg:mt-0 lg:w-auto lg:rounded-none lg:px-0 lg:pt-0">
               <div className="max-w-2xl">
-                {/* Título desktop */}
-                <div className="hidden lg:block">
-                  <span className="mb-5 block text-xs font-bold uppercase tracking-[0.2em] text-sky-600">
-                    Mi propósito
-                  </span>
-
-                  <h2 className="mb-8 text-4xl font-light leading-[1.1] tracking-tight text-slate-900 lg:text-5xl">
+                {/* Título */}
+                <div>
+                  <h2 className="mb-8 text-balance font-[family-name:var(--font-bitter)] text-4xl font-medium leading-[1.12] tracking-tight text-ink lg:text-5xl">
                     Soy Victoria Aphalo, docente apasionada por la{' '}
-                    <span className="font-bold italic text-sky-700">
+                    <span className="font-semibold italic text-sky-700">
                       infancia y la pedagogía
                     </span>
                   </h2>
                 </div>
 
-                <div className="space-y-5 text-base leading-[1.75] text-slate-600 lg:space-y-6 lg:text-xl lg:leading-relaxed">
+                <div className="space-y-5 text-base leading-[1.75] text-ink-soft lg:space-y-6 lg:text-xl lg:leading-relaxed">
                   <p>
                     Durante años me encontré con grupos que no respondían y con
                     mucho desgaste en el aula. Hasta que entendí que{' '}
-                    <span className="border-b-2 border-sky-100 font-semibold text-slate-900">
+                    <span className="border-b-2 border-sky-100 font-semibold text-ink">
                       no se trataba solo de qué hacía, sino de cómo intervenía
                     </span>{' '}
                     en esos momentos.
@@ -200,7 +170,7 @@ export default function Biography() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
             className="h-6 w-6"
@@ -212,10 +182,10 @@ export default function Biography() {
         </a>
 
         {/* Frase final */}
-        <div className="relative mt-12 flex lg:animate-fade-in-up flex-col items-center px-6 pt-12 lg:opacity-0 lg:[animation-delay:400ms] lg:[animation-fill-mode:forwards] lg:mt-16 lg:px-0 lg:pt-16">
+        <div className="relative mt-20 flex lg:animate-fade-in-up flex-col items-center px-6 pt-12 lg:opacity-0 lg:[animation-delay:400ms] lg:[animation-fill-mode:forwards] lg:mt-16 lg:px-0 lg:pt-16">
           <div className="absolute top-0 h-px w-24 bg-slate-200" />
 
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-sky-100">
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-pencil/25">
             <svg
               width="40"
               height="30"
@@ -228,11 +198,10 @@ export default function Biography() {
           </div>
 
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <p className="text-2xl font-light italic leading-tight text-slate-600 sm:text-3xl lg:text-4xl">
+            <p className="font-[family-name:var(--font-bitter)] text-2xl font-light italic leading-tight text-ink-soft sm:text-3xl lg:text-4xl">
               Porque no se trata de hacer más,
-              <br className="sm:hidden" />
-              <span className="text-sky-600/80">
-                {' '}
+              <br className="sm:hidden" />{' '}
+              <span className="text-sky-700">
                 se trata de intervenir mejor
               </span>
             </p>

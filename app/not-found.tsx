@@ -2,41 +2,52 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-6 font-[family-name:var(--font-lexend)]">
-      <div className="text-center space-y-6 max-w-md">
-        <h1 className="text-9xl font-black text-sky-100 animate-pulse">404</h1>
-        <div className="space-y-2">
-          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Página no encontrada</h2>
-          <p className="text-slate-600 text-lg">
-            Parece que te has perdido en el aula. No te preocupes, volvamos al camino principal.
-          </p>
+    <div className="flex min-h-screen items-center justify-center bg-white px-6 font-[family-name:var(--font-lexend)]">
+      <div className="relative w-full max-w-lg">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-paper-soft p-8 text-center shadow-[12px_12px_0_rgba(15,23,42,0.08)] sm:p-12">
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(to bottom, transparent 0 31px, rgba(15, 23, 42, 0.045) 31px 32px)',
+            }}
+            aria-hidden="true"
+          />
+
+          <div className="relative">
+            <p className="font-[family-name:var(--font-bitter)] text-8xl font-semibold leading-none tracking-tight text-pencil/20">
+              404
+            </p>
+
+            <h1 className="mt-4 font-[family-name:var(--font-bitter)] text-3xl font-medium tracking-tight text-ink">
+              Página no encontrada
+            </h1>
+
+            <p className="mx-auto mt-3 max-w-sm text-base leading-relaxed text-ink-soft">
+              Parece que te perdiste en el aula. No te preocupes, volvamos al camino
+              principal.
+            </p>
+
+            <Link
+              href="/"
+              className="group mt-7 inline-flex items-center justify-center gap-2.5 rounded-xl bg-sky-600 px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-sky-600/25 transition-all hover:-translate-y-0.5 hover:bg-sky-700 hover:shadow-xl hover:shadow-sky-600/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 focus-visible:ring-offset-paper-soft active:translate-y-0 active:shadow-md active:shadow-sky-600/20"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4 transition-transform group-hover:-translate-x-1"
+              >
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+              Volver al inicio
+            </Link>
+          </div>
         </div>
-        <Link 
-          href="/" 
-          className="inline-flex items-center justify-center bg-sky-600 hover:bg-sky-500 text-white font-medium py-4 px-8 rounded-2xl shadow-xl shadow-sky-200 transition-all text-lg group"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="3" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="mr-2 group-hover:-translate-x-1 transition-transform"
-          >
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-          Volver al inicio
-        </Link>
-      </div>
-      
-      {/* Elementos decorativos sutiles */}
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-        <div className="absolute top-[10%] -left-24 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] -right-24 w-[500px] h-[500px] bg-slate-50 rounded-full blur-[120px]" />
       </div>
     </div>
   );

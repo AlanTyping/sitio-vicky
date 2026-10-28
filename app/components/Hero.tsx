@@ -83,7 +83,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative hidden h-screen flex-col overflow-hidden bg-slate-900 font-[family-name:var(--font-lexend)] lg:sticky lg:top-0 lg:flex"
+      className="relative hidden h-screen flex-col overflow-hidden bg-ink font-[family-name:var(--font-lexend)] lg:sticky lg:top-0 lg:flex"
     >
       {/* Video de fondo (con margen extra para el parallax) */}
       <div
@@ -114,7 +114,7 @@ export default function Hero() {
       {/* Velo que se intensifica con el scroll */}
       <div
         ref={shadeRef}
-        className="pointer-events-none absolute inset-0 z-[5] bg-[#06162a] opacity-0"
+        className="pointer-events-none absolute inset-0 z-[5] bg-ink opacity-0"
         aria-hidden="true"
       />
 
@@ -125,31 +125,31 @@ export default function Hero() {
       >
         {/* Título y subtítulo */}
         <div className="text-center mb-10 lg:mb-16">
-          <h1 className="text-[42px] sm:text-[72px] lg:text-[96px] font-bold tracking-tight text-white leading-[0.9] drop-shadow-2xl animate-fade-in-up">
+          <h1 className="font-[family-name:var(--font-bitter)] text-[46px] sm:text-[76px] lg:text-[104px] font-medium tracking-[-0.02em] text-paper leading-[0.92] drop-shadow-2xl animate-fade-in-up">
             Vicky Aphalo
           </h1>
           <div className="mt-6 flex items-center justify-center gap-3 lg:gap-4 animate-fade-in [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
-            <span className="h-px w-6 lg:w-10 bg-white/40"></span>
-            <p className="text-[12px] lg:text-[16px] font-medium uppercase tracking-[0.18em] lg:tracking-[0.28em] text-white/90 text-center">
+            <span className="h-px w-8 lg:w-12 bg-marker/60"></span>
+            <p className="font-[family-name:var(--font-caveat)] text-xl lg:text-2xl leading-none text-marker text-center">
               Licenciada en Educación y maestra
             </p>
-            <span className="h-px w-6 lg:w-10 bg-white/40"></span>
+            <span className="h-px w-8 lg:w-12 bg-marker/60"></span>
           </div>
         </div>
 
         {/* Propuestas (sin tarjeta, directo sobre el video) */}
         <div className="flex flex-col items-center text-center animate-fade-in [animation-delay:600ms] opacity-0 [animation-fill-mode:forwards]">
-          <p className="text-base lg:text-xl font-semibold tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
+          <p className="text-sm lg:text-base font-medium tracking-tight text-paper/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
             Sesiones 1:1
-            <span className="mx-2 lg:mx-3 text-white/50" aria-hidden="true">&middot;</span>
+            <span className="mx-2 lg:mx-3 text-marker/70" aria-hidden="true">&middot;</span>
             Talleres
-            <span className="mx-2 lg:mx-3 text-white/50" aria-hidden="true">&middot;</span>
+            <span className="mx-2 lg:mx-3 text-marker/70" aria-hidden="true">&middot;</span>
             Capacitaciones institucionales
           </p>
 
           <a
             href="#servicios"
-            className="group/cta mt-8 inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-8 py-4 text-base lg:text-lg font-bold text-slate-900 shadow-2xl shadow-black/30 transition-all hover:bg-sky-50 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
+            className="group/cta mt-14 inline-flex items-center justify-center gap-3 rounded-xl bg-white px-8 py-4 text-base lg:text-lg font-bold text-slate-900 shadow-lg shadow-black/20 transition-all hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-xl hover:shadow-black/25 active:translate-y-0 active:shadow-md active:shadow-black/15 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-900"
           >
             Conocé mis servicios
             <svg
@@ -181,7 +181,7 @@ export default function Hero() {
             viewBox="0 0 24 60"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="text-white"
+            className="text-marker"
           >
             <path
               d="M12 0V58M12 58L5 51M12 58L19 51"
