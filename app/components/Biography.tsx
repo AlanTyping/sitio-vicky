@@ -120,7 +120,7 @@ export default function Biography() {
               <div className="max-w-2xl">
                 {/* Título */}
                 <div>
-                  <h2 className="mb-8 text-balance font-[family-name:var(--font-bitter)] text-4xl font-medium leading-[1.12] tracking-tight text-ink lg:text-5xl">
+                  <h2 className="mb-8 mt-10 text-balance font-[family-name:var(--font-bitter)] text-4xl font-medium leading-[1.12] tracking-tight text-ink lg:mt-0 lg:text-5xl">
                     Soy Victoria Aphalo, docente apasionada por la{' '}
                     <span className="font-semibold italic text-sky-700">
                       infancia y la pedagogía
