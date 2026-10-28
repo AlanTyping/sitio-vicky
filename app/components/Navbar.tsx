@@ -21,8 +21,8 @@ const Navbar = ({ theme = "dark", compact = false }: NavbarProps) => {
 
   const navLinks = [
     { href: isHome ? "#biografia" : "/#biografia", label: "Sobre mí" },
-    { href: isHome ? "#servicios" : "/#servicios", label: "Servicios" },
-    { href: isHome ? "#guia-gratuita" : "/#guia-gratuita", label: "Guía gratuita", highlight: true },
+    { href: isHome ? "#servicios" : "/#servicios", label: "Servicios", highlight: true },
+    { href: isHome ? "#guia-gratuita" : "/#guia-gratuita", label: "Guía gratuita" },
     { href: isHome ? "#ebook" : "/#ebook", label: "Ebook" },
     { href: isHome ? "#contacto" : "/#contacto", label: "Contacto" },
   ];

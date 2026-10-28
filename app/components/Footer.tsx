@@ -11,8 +11,12 @@ const SECTIONS = [
 
 const SERVICES = [
   { href: '/servicios/sesiones-1a1', label: 'Sesiones 1:1' },
-  { href: '/#talleres', label: 'Talleres' },
-  { href: '/#capacitaciones', label: 'Capacitaciones' },
+  { href: '/servicios/acompanamiento-4-semanas', label: 'Acompañamiento 4 semanas' },
+  { href: '/servicios/talleres', label: 'Talleres' },
+  {
+    href: '/servicios/asesoramiento-instituciones',
+    label: 'Asesoramiento institucional',
+  },
 ];
 
 const INSTAGRAM_ICON = (

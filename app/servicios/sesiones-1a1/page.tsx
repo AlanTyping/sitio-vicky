@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Navbar from '@/app/components/Navbar';
 import ServiceContact from '@/app/components/ServiceContact';
 import Footer from '@/app/components/Footer';
-import { whatsappUrl } from '@/config/contact';
+import { SERVICE_1A1_MESSAGE, whatsappUrl } from '@/config/contact';
+import Reveal from '@/app/components/ui/Reveal';
 import SectionRail from './SectionRail';
 
 export const metadata: Metadata = {
@@ -55,8 +56,7 @@ const SESSION = {
   ],
   outcome:
     'Te llevás claridad sobre lo que sucede y por dónde empezar a intervenir.',
-  cta: 'Empezar con una sesión',
-  whatsappMessage: 'Hola Vicky, quiero consultar por la Sesión 1:1 de 90 minutos.',
+  cta: 'Consultar por el servicio 1:1',
 };
 
 const ARROW_ICON = (
@@ -105,98 +105,110 @@ export default function SesionesUnoAUnoPage() {
           <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-start lg:gap-16">
               <div>
-                <h1 className="text-balance text-4xl font-light leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                  Esa situación del aula que se repite{' '}
-                  <span className="font-bold text-sky-600">tiene salida.</span>
-                </h1>
+                <Reveal>
+                  <h1 className="text-balance text-4xl font-light leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+                    Esa situación del aula que se repite{' '}
+                    <span className="font-bold text-sky-600">tiene salida.</span>
+                  </h1>
+                </Reveal>
 
-                <p className="mt-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-lg font-light text-slate-500">
-                  Entender qué pasa
-                  <span className="text-sky-600" aria-hidden="true">
-                    →
-                  </span>
-                  Saber cómo intervenir
-                </p>
+                <Reveal delay={100}>
+                  <p className="mt-6 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-lg font-light text-slate-500">
+                    Entender qué pasa
+                    <span className="text-sky-600" aria-hidden="true">
+                      →
+                    </span>
+                    Saber cómo intervenir
+                  </p>
+                </Reveal>
 
-                <p className="mt-5 max-w-lg text-pretty text-base leading-relaxed text-slate-600">
-                  Analizo con vos una situación concreta de tu aula y diseño un plan de
-                  intervención adaptado a tu contexto.
-                </p>
+                <Reveal delay={180}>
+                  <p className="mt-5 max-w-lg text-pretty text-base leading-relaxed text-slate-600">
+                    Analizo con vos una situación concreta de tu aula y diseño un plan de
+                    intervención adaptado a tu contexto.
+                  </p>
+                </Reveal>
 
-                <div className="mt-8">
-                  <p className="text-sm font-medium text-slate-500">¿Te pasa esto?</p>
+                <Reveal delay={260}>
+                  <div className="mt-8">
+                    <p className="text-sm font-medium text-slate-500">¿Te pasa esto?</p>
 
-                  <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                    {PAIN_POINTS.map((point) => (
-                      <li
-                        key={point}
-                        className="flex items-center gap-2.5 text-sm leading-relaxed text-slate-600"
-                      >
-                        <span
-                          className="h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"
-                          aria-hidden="true"
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {PAIN_POINTS.map((point) => (
+                        <li
+                          key={point}
+                          className="flex items-center gap-2.5 text-sm leading-relaxed text-slate-600"
+                        >
+                          <span
+                            className="h-1.5 w-1.5 shrink-0 rounded-full bg-sky-500"
+                            aria-hidden="true"
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
 
-                <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-                  <a
-                    href="#consulta"
-                    className="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl bg-sky-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 active:bg-sky-800"
-                  >
-                    Quiero mi plan de intervención
-                    {ARROW_ICON}
-                  </a>
-                  <a
-                    href="#incluye"
-                    className="text-sm font-medium text-slate-600 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-sky-700"
-                  >
-                    Ver qué incluye
-                  </a>
-                </div>
+                <Reveal delay={340}>
+                  <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+                    <a
+                      href="#consulta"
+                      className="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl bg-sky-600 px-6 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 active:bg-sky-800"
+                    >
+                      Quiero empezar
+                      {ARROW_ICON}
+                    </a>
+                    <a
+                      href="#incluye"
+                      className="text-sm font-medium text-slate-600 underline decoration-slate-300 underline-offset-4 transition-colors hover:text-sky-700"
+                    >
+                      Ver qué incluye
+                    </a>
+                  </div>
+                </Reveal>
               </div>
 
               {/* Resumen para desktop */}
               <div className="hidden lg:block">
-                <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5">
-                  <div className="flex items-center gap-3 border-b border-slate-200 pb-5">
-                    <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-slate-100">
-                      <Image
-                        src="/images/vicky.webp"
-                        alt="Vicky Aphalo"
-                        fill
-                        sizes="48px"
-                        className="object-cover object-[center_28%]"
-                      />
-                    </span>
+                <Reveal delay={200}>
+                  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-900/5">
+                    <div className="flex items-center gap-3 border-b border-slate-200 pb-5">
+                      <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-slate-100">
+                        <Image
+                          src="/images/vicky.webp"
+                          alt="Vicky Aphalo"
+                          fill
+                          sizes="48px"
+                          className="object-cover object-[center_28%]"
+                        />
+                      </span>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">Vicky Aphalo</p>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Vicky Aphalo</p>
+                      </div>
                     </div>
+
+                    <div className="divide-y divide-slate-100">
+                      <div className="flex items-baseline justify-between gap-4 py-4">
+                        <p className="text-sm text-slate-600">Duración</p>
+                        <span className="text-sm font-semibold text-slate-900">90 min</span>
+                      </div>
+                      <div className="flex items-baseline justify-between gap-4 py-4">
+                        <p className="text-sm text-slate-600">Plan de intervención</p>
+                        <span className="text-sm font-semibold text-slate-900">A medida</span>
+                      </div>
+                      <div className="flex items-baseline justify-between gap-4 py-4">
+                        <p className="text-sm text-slate-600">Material digital</p>
+                        <span className="text-sm font-semibold text-slate-900">Incluido</span>
+                      </div>
+                    </div>
+
+                    <p className="border-t border-slate-200 pt-4 text-sm text-slate-500">
+                      Si tenés dudas, escribime y lo vemos.
+                    </p>
                   </div>
-
-                  <div className="divide-y divide-slate-100">
-                    <div className="flex items-baseline justify-between gap-4 py-4">
-                      <p className="text-sm text-slate-600">Duración</p>
-                      <span className="text-sm font-semibold text-slate-900">90 min</span>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 py-4">
-                      <p className="text-sm text-slate-600">Plan de intervención</p>
-                      <span className="text-sm font-semibold text-slate-900">A medida</span>
-                    </div>
-                    <div className="flex items-baseline justify-between gap-4 py-4">
-                      <p className="text-sm text-slate-600">Material digital</p>
-                      <span className="text-sm font-semibold text-slate-900">Incluido</span>
-                    </div>
-                  </div>
-
-                  <p className="border-t border-slate-200 pt-4 text-sm text-slate-500">
-                    Si tenés dudas, escribime y lo vemos.
-                  </p>
-                </div>
+                </Reveal>
               </div>
             </div>
           </div>
@@ -210,17 +222,24 @@ export default function SesionesUnoAUnoPage() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center lg:gap-20">
               <div>
-                <h2 className="text-3xl font-light leading-tight tracking-tight text-slate-900 sm:text-4xl">
-                  La sesión, en detalle
-                </h2>
+                <Reveal>
+                  <h2 className="text-3xl font-light leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    La sesión, en detalle
+                  </h2>
+                </Reveal>
 
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-                  Un encuentro individual para entender qué está pasando y salir con un plan
-                  concreto para intervenir en tu aula.
-                </p>
+                <Reveal delay={80}>
+                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+                    Un encuentro individual para entender qué está pasando y salir con un plan
+                    concreto para intervenir en tu aula.
+                  </p>
+                </Reveal>
 
                 <div className="mt-12 border-t border-slate-200">
-                  <div className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={120}
+                    className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       Sesión
                     </p>
@@ -232,27 +251,36 @@ export default function SesionesUnoAUnoPage() {
                         Encuentro individual · {SESSION.duration}
                       </p>
                     </div>
-                  </div>
+                  </Reveal>
 
-                  <div className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={180}
+                    className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       El punto de partida
                     </p>
                     <p className="text-pretty text-lg font-light leading-snug text-slate-800 sm:text-xl">
                       {SESSION.tagline}
                     </p>
-                  </div>
+                  </Reveal>
 
-                  <div className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={240}
+                    className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       Qué hacemos
                     </p>
                     <p className="text-base leading-relaxed text-slate-600">
                       {SESSION.description}
                     </p>
-                  </div>
+                  </Reveal>
 
-                  <div className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={300}
+                    className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       Incluye
                     </p>
@@ -267,18 +295,24 @@ export default function SesionesUnoAUnoPage() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </Reveal>
 
-                  <div className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={360}
+                    className="grid gap-2 border-b border-slate-200 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       Te llevás
                     </p>
                     <p className="text-lg font-light italic leading-relaxed text-slate-800">
                       {SESSION.outcome}
                     </p>
-                  </div>
+                  </Reveal>
 
-                  <div className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <Reveal
+                    delay={420}
+                    className="grid gap-3 py-6 sm:grid-cols-[180px_1fr] sm:gap-8"
+                  >
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
                       Siguiente paso
                     </p>
@@ -286,20 +320,21 @@ export default function SesionesUnoAUnoPage() {
                       <p className="text-sm text-slate-500">{SESSION.ideal}</p>
 
                       <a
-                        href={whatsappUrl(SESSION.whatsappMessage)}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="#consulta"
                         className="group mt-4 inline-flex items-center justify-center gap-2.5 rounded-xl bg-sky-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-600 focus-visible:ring-offset-2 active:bg-sky-800"
                       >
                         {SESSION.cta}
                         {ARROW_ICON}
                       </a>
                     </div>
-                  </div>
+                  </Reveal>
                 </div>
               </div>
 
-              <div className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center">
+              <Reveal
+                delay={200}
+                className="hidden lg:flex lg:flex-col lg:items-center lg:justify-center"
+              >
                 <div className="relative w-full max-w-[300px]">
                   <div
                     className="absolute inset-0 -z-10 rounded-full bg-sky-50 blur-3xl"
@@ -392,7 +427,7 @@ export default function SesionesUnoAUnoPage() {
                 <p className="mt-6 max-w-[220px] text-center text-sm leading-relaxed text-slate-400">
                   Un plan claro para saber por dónde empezar.
                 </p>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -405,7 +440,7 @@ export default function SesionesUnoAUnoPage() {
 
       {/* WhatsApp fijo en mobile */}
       <a
-        href={whatsappUrl('Hola Vicky, quiero consultar por la sesión 1:1.')}
+        href={whatsappUrl(SERVICE_1A1_MESSAGE)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Escribir por WhatsApp"

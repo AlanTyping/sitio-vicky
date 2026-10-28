@@ -142,9 +142,11 @@ export default function Hero() {
           <p className="text-sm lg:text-base font-medium tracking-tight text-paper/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]">
             Sesiones 1:1
             <span className="mx-2 lg:mx-3 text-marker/70" aria-hidden="true">&middot;</span>
+            Acompañamiento 4 semanas
+            <span className="mx-2 lg:mx-3 text-marker/70" aria-hidden="true">&middot;</span>
             Talleres
             <span className="mx-2 lg:mx-3 text-marker/70" aria-hidden="true">&middot;</span>
-            Capacitaciones institucionales
+            Asesoramiento institucional
           </p>
 
           <a

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Reveal from '@/app/components/ui/Reveal';
 
 const TONES = {
   sky: {
@@ -21,6 +22,13 @@ const TONES = {
     soft: 'bg-indigo-50',
     section: 'bg-slate-50',
     glow: 'bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.07),transparent_65%)]',
+  },
+  emerald: {
+    text: 'text-emerald-700',
+    dot: 'bg-emerald-500',
+    soft: 'bg-emerald-50',
+    section: 'bg-white',
+    glow: 'bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.07),transparent_65%)]',
   },
 } as const;
 
@@ -69,7 +77,7 @@ const SERVICES: Service[] = [
       'Un encuentro individual de 90 minutos para pensar una situación concreta de tu aula y construir un plan de intervención.',
     ],
     tone: 'sky',
-    section: 'bg-slate-50',
+    section: 'bg-gradient-to-b from-slate-50 to-white',
     label: 'Analizamos',
     items: [
       'Qué está ocurriendo',
@@ -79,6 +87,27 @@ const SERVICES: Service[] = [
     cta: 'Ver sesiones 1:1',
     href: '/servicios/sesiones-1a1',
     reverse: false,
+    layout: 'process',
+  },
+  {
+    id: 'acompanamiento',
+    titleStrong: 'Acompañamiento',
+    titleRest: '4 semanas',
+    paragraphs: [
+      'Durante cuatro semanas, trabajo con vos sobre una situación concreta de tu aula para implementar un plan y ajustarlo a lo que va apareciendo.',
+    ],
+    tone: 'emerald',
+    section: 'bg-white',
+    label: 'El recorrido',
+    items: [
+      'Analizamos qué sucede',
+      'Diseñamos el plan',
+      'Acompañamos la implementación',
+      'Revisamos y ajustamos',
+    ],
+    cta: 'Ver acompañamiento 4 semanas',
+    href: '/servicios/acompanamiento-4-semanas',
+    reverse: true,
     layout: 'process',
   },
   {
@@ -101,19 +130,19 @@ const SERVICES: Service[] = [
       'Diseño de propuestas pedagógicas',
     ],
     cta: 'Ver talleres',
-    href: '#contacto',
-    reverse: true,
+    href: '/servicios/talleres',
+    reverse: false,
     layout: 'tags',
   },
   {
     id: 'capacitaciones',
-    titleStrong: 'Capacitaciones',
-    titleRest: 'institucionales',
+    titleStrong: 'Asesoramiento',
+    titleRest: 'institucional',
     paragraphs: [
       'Propuestas para escuelas y equipos docentes que buscan revisar situaciones concretas de su práctica y construir criterios compartidos de intervención.',
     ],
     tone: 'indigo',
-    section: 'bg-slate-50',
+    section: 'bg-white',
     label: 'Pueden abordar',
     items: [
       'Convivencia',
@@ -124,10 +153,10 @@ const SERVICES: Service[] = [
       'Diseño de propuestas',
     ],
     quote:
-      'Las capacitaciones se diseñan de acuerdo con las necesidades de cada institución.',
-    cta: 'Consultar por una capacitación',
-    href: '#contacto',
-    reverse: false,
+      'Las propuestas se diseñan de acuerdo con las necesidades de cada institución.',
+    cta: 'Ver asesoramiento institucional',
+    href: '/servicios/asesoramiento-instituciones',
+    reverse: true,
     layout: 'quote',
   },
 ];
@@ -231,19 +260,15 @@ function ServiceSection({ service }: { service: Service }) {
   return (
     <section
       id={service.id}
-      className={`relative scroll-mt-24 overflow-hidden border-t border-slate-200/70 py-16 font-[family-name:var(--font-lexend)] lg:py-24 ${service.section}`}
+      className={`relative scroll-mt-24 overflow-hidden py-16 font-[family-name:var(--font-lexend)] lg:py-24 ${service.section}`}
     >
       <div
         className={`pointer-events-none absolute -right-32 top-1/4 h-[24rem] w-[24rem] rounded-full blur-2xl ${tone.glow}`}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
-        <div
-          className={`animate-fade-in-up opacity-0 [animation-fill-mode:forwards] ${
-            service.reverse ? 'lg:order-2' : ''
-          }`}
-        >
+      <Reveal className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <div className={service.reverse ? 'lg:order-2' : undefined}>
           <h2 className="text-balance text-4xl font-light leading-[1.1] tracking-tight text-slate-900 lg:text-5xl">
             {service.titleStrong}{' '}
             <span className={`font-bold ${tone.text}`}>{service.titleRest}</span>
@@ -262,14 +287,10 @@ function ServiceSection({ service }: { service: Service }) {
           </Link>
         </div>
 
-        <div
-          className={`relative ${
-            service.reverse ? 'animate-slide-in-left lg:order-1' : 'animate-slide-in-right'
-          }`}
-        >
+        <div className={`relative ${service.reverse ? 'lg:order-1' : ''}`}>
           <ServiceCard service={service} />
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
